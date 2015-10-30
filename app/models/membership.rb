@@ -1,5 +1,5 @@
 class Membership < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
-  belongs_to :department
+  belongs_to :team
 end
