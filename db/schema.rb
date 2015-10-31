@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20151031155315) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id",    null: false
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name",                       null: false
     t.string   "description",                null: false
@@ -52,6 +60,13 @@ ActiveRecord::Schema.define(version: 20151031155315) do
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "shortcode",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
