@@ -43,5 +43,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem "nokogiri", ">= 1.6.7.rc"
+  gem 'tzinfo-data'
+  gem 'monban'
+  gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+  gem 'responders', '~> 2.0'
 end
 
