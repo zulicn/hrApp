@@ -14,7 +14,9 @@
 	float: right;
 }
 
-
+.pull-left {
+	float: left;
+}
 /* LANDING */
 .navbar-fixed-top {
 	margin-bottom: 0px;
@@ -116,4 +118,53 @@
 	color: $violet;
 	text-align: center;
 	padding-top: 17px;
+}
+
+.page-title {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.users-container {
+	table {
+		th, td {
+			width: 200px;
+		}
+
+		td {
+			.btn-link {
+				padding-left: 0;
+			}
+		}
+	}
+	.modal-title {
+		text-align: center;		
+	}
+	.modal-body {
+		.user {
+			width: 100%;
+			float: left;
+			padding-top: 10px;
+  			padding-left: 10px;
+		}
+		.info {
+			font-weight: bold;
+			float: left;
+			width: 200px;
+		}
+		.info-detail {
+			float: left;
+			width: 350px;
+		}
+	}
+	.panel-heading.accepted {
+		line-height: 35px;
+		height: 55px;
+	}
+	.search-right-menu {
+		width: 300px;
+		.form-group {
+			float: left;
+		}
+	}
 }
