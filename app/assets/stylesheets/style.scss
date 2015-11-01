@@ -1,0 +1,34 @@
+@import 'variables';
+
+/* DASHBOARD */
+.dashboard-container {
+  background: url(cover.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar-fixed-top {
+	margin-bottom: 0px;
+}
+
+.navbar-fixed-bottom {
+	color: $violet;
+	text-align: center;
+	padding-top: 12px;
+}
+
+.navbar {
+  font-family: 'Hind';
+  font-weight: 500;
+
+  .blue, .blue:hover {
+		color: $blue !important;
+	}
+
+	.pacific-blue > a, .pacific-blue > a:hover, .dropdown-toggle {
+		color: $pacific-blue !important;
+	}
+}
