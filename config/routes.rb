@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :projects
   resources :events
-  resources :users
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   # Example resource route with options:
   #   resources :products do
@@ -57,4 +58,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
 end

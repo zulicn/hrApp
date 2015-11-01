@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :department
 
+  validates :email, presence: true, uniqueness: true
+  validates :password_digest, presence: true
+
+
   def fullname
     fullname = ""
     fullname += firstname + " " unless firstname.blank?
@@ -11,6 +15,6 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-  	role.name === 'Admin'
+    role.name === 'Admin'
   end
 end
