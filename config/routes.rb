@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :events
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :index, :show, :edit]
 
   # Example resource route with options:
   #   resources :products do
