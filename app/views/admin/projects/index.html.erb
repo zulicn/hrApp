@@ -1,0 +1,32 @@
+<%= link_to 'Kreiraj novi', new_admin_project_path %>
+
+<table>
+  <thead>
+    <th>Ime</th>
+    <th>Opis</th>
+    <th>Početak</th>
+    <th>Kraj</th>
+    <th>Timovi</th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr class="<%= project_active_class(project) %>">
+      <td><%= project.name %></td>
+      <td><small><%= project.description %></small></td>
+      <td><%= project.start_date %></td>
+      <td><%= project.end_date %></td>
+      <td><%= project.teams.map(&:shortcode).join(', ') %></td>
+      <td>
+        <%= link_to 'Promijeni', edit_admin_project_path(project) %> |
+        <% if project.is_active %>
+          <%= link_to 'Arhiviraj', archive_admin_project_path(project), method: :put %> |
+        <% else %>
+          <%= link_to 'Aktiviraj', activate_admin_project_path(project), method: :put %> |
+        <% end %>
+        <%= link_to 'Izbriši', admin_project_path(project), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

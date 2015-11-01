@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
+
   resources :users, only: [:new, :create]
+
+  resource :dashboard, only: :show
+
+  resources :memberships do
+    post :reject, on: :collection
+  end
+
   root 'welcomes#index'
+
+  namespace :admin do
+    resources :projects do
+      member do
+        put 'archive'
+        put 'activate'
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

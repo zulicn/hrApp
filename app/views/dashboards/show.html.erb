@@ -1,0 +1,5 @@
+Obavještenja
+
+<% @dashboard.notifications.each do |notification| %>
+  <p><%= notification.message %> <%= link_to 'link', notification.link %><p>
+<% end %>

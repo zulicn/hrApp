@@ -1,0 +1,25 @@
+<div>
+  <%= f.label :name, 'Ime' %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :description, 'Opis' %>
+  <%= f.text_area :description %>
+</div>
+<div>
+  <%= f.label :name, 'Početak' %>
+  <%= f.text_field :start_date %>
+</div>
+<div>
+  <%= f.label :name, 'Kraj' %>
+  <%= f.text_field :end_date %>
+</div>
+<div>
+  <p>Izaberite timove koji će učestvovati u ovom projektu</p>
+  <% @teams.each do |team| %>
+    <%= check_box_tag 'teams[]', team.id, @project.teams.include?(team) %> <%= team.shortcode %>
+  <% end %>
+</div>
+<div>
+  <%= f.submit submit_label %>
+</div>
