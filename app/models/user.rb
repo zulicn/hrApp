@@ -4,4 +4,17 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+
+
+  def fullname
+    fullname = ""
+    fullname += firstname + " " unless firstname.blank?
+    fullname += lastname unless lastname.blank?
+
+    fullname
+  end
+
+  def is_admin?
+    role.name === 'Admin'
+  end
 end

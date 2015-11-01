@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HrApp</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600', media: 'all'%>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Hind:400,500,600,700,300&subset=latin,latin-ext', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    @Copyright 2015 - EESTEC LC Sarajevo
+  </div>
+</nav>
+
+</body>
+</html>
