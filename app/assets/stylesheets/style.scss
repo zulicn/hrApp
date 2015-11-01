@@ -1,7 +1,7 @@
 @import 'variables';
 
-/* DASHBOARD */
-.dashboard-container {
+/* COMMON */
+.image-container {
   background: url(cover.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -10,14 +10,14 @@
   height: 100vh;
 }
 
-.navbar-fixed-top {
-	margin-bottom: 0px;
+.pull-right {
+	float: right;
 }
 
-.navbar-fixed-bottom {
-	color: $violet;
-	text-align: center;
-	padding-top: 12px;
+
+/* LANDING */
+.navbar-fixed-top {
+	margin-bottom: 0px;
 }
 
 .navbar {
@@ -31,4 +31,89 @@
 	.pacific-blue > a, .pacific-blue > a:hover, .dropdown-toggle {
 		color: $pacific-blue !important;
 	}
+}
+
+/* DASHBOARD */
+
+.dashboard {
+	.navbar-right {
+	  padding-right: 80px;
+	}
+	.navbar {
+	  .btn-projects, .btn-events, .btn-users, .btn-workshops {
+	    margin-top: 8px;
+	    margin-right: 10px;
+    	padding: 8px 10px 5px;
+	  }
+
+	  .btn-projects, .btn-projects:hover {
+	    color: $orange;
+    	border-color: $orange;
+	  }
+
+	  .btn-users {
+	    color: $pink;
+	    border-color: $pink;
+	  }
+
+	  .btn-events {
+	    color: $violet;
+	    border-color: $violet;
+	  }
+
+	  .btn-workshops {
+	    color: $green;
+	    border-color: $green;
+	  }
+	}
+	.btn-team {
+		margin-top: 8px;
+	    margin-right: 10px;
+    	padding: 8px 10px 5px;
+  	color: $red;
+  	border-color: $red;
+  	margin-left: 30px;
+  }
+}
+
+.dashboard-container {
+	font-family: 'Hind';
+	font-weight: 500;
+	padding: 75px 25px 0px;
+  background: url(transparentcover.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+	.panel {
+		height: 320px;
+		background: transparent;
+		overflow: auto;
+		.panel-heading {
+			color: #fff;
+		}
+		.red-heading {
+			background-color: $red;
+		} 
+		.pacific-heading {
+			background-color: $pacific-blue;
+		}
+		.yellow-heading {
+			background-color: $yellow;
+		}
+		.violet-heading {
+			background-color: $violet;
+		}
+		.green-heading {
+			background-color: $green;
+		}
+	}
+}
+
+/* FOOTER */
+.navbar-fixed-bottom {
+	color: $violet;
+	text-align: center;
+	padding-top: 17px;
 }
