@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
 	respond_to :html
+  before_action :restrict_access, only: [:accept, :promote]
 
   def new
     @user = User.new
   end
 
   def index
-    @accepted_users = User.where(is_accepted: true)
     @new_users = User.where(is_accepted: false)
+
+    @accepted_users = User.where(is_accepted: true)
     if params[:search]
       @accepted_users = User.where(is_accepted: true).search(params[:search])
-    else
-      @accepted_users = User.where(is_accepted: true)
     end
   end
 
@@ -37,6 +37,10 @@ class UsersController < ApplicationController
     user.role = Role.find_by(name: 'Admin')
     user.save!
     redirect_to users_path
+  end
+
+  def restrict_access
+    return redirect_to new_session_path if current_user.nil? || current_user.role != Role.find_by(name: 'Admin')
   end
 
   private
