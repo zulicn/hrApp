@@ -2,7 +2,7 @@
 
 /* COMMON */
 .image-container {
-  background: url(cover.jpg) no-repeat center center fixed; 
+  background: url(cover.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,7 +42,7 @@
 	  padding-right: 80px;
 	}
 	.navbar {
-	  .btn-projects, .btn-events, .btn-users, .btn-workshops {
+	  .btn-projects, .btn-events, .btn-users, .btn-workshops, .btn-dashboard {
 	    margin-top: 8px;
 	    margin-right: 10px;
     	padding: 8px 10px 5px;
@@ -52,6 +52,11 @@
 	    color: $orange;
     	border-color: $orange;
 	  }
+
+    .btn-dashboard {
+      color: $red;
+      border-color: $red;
+    }
 
 	  .btn-users {
 	    color: $pink;
@@ -82,7 +87,7 @@
 	font-family: 'Hind';
 	font-weight: 500;
 	padding: 75px 25px 0px;
-  background: url(transparentcover.png) no-repeat center center fixed; 
+  background: url(transparentcover.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -97,7 +102,10 @@
 		}
 		.red-heading {
 			background-color: $red;
-		} 
+      a {
+        color: white;
+      }
+		}
 		.pacific-heading {
 			background-color: $pacific-blue;
 		}
@@ -119,6 +127,7 @@
 	text-align: center;
 	padding-top: 17px;
 }
+
 
 .page-title {
 	text-align: center;
@@ -168,3 +177,4 @@
 		}
 	}
 }
+

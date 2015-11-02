@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def restrict_access
-    return redirect_to new_session_path if current_user.nil? || current_user.role != Role.find_by(name: 'Admin')
+    return redirect_to new_session_path if current_user.nil? || current_user.role != Role.admin
   end
 
   private
