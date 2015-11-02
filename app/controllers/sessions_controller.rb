@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
     user = authenticate_session(session_params)
     if user.is_accepted
       sign_in(user) do
-        respond_with(user, location: dashboard_path) and return
+        if user.is_admin?
+          respond_with(user, location: admin_dashboard_path) and return
+        else 
+          respond_with(user, location: dashboard_path) and return
+        end
       end
     else
       respond_with(user, location: root_path) and return
