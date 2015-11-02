@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading violet-heading">Notifikacije</div>
+      <div class="panel-body">
+        <% @dashboard.notifications.each do |notification| %>
+          <p><%= notification.message %> <%= link_to 'link', notification.link %><p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading green-heading">Task manager</div>
+      <div class="panel-body">
+
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+  <div class="panel panel-default">
+    <div class="panel-heading pacific-heading">
+      Aktuelni događaji
+      <% if @current_user.is_admin? %>
+        <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj"></span>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      Panel content
+    </div>
+  </div>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading red-heading">
+      Aktivni projekti
+      </div>
+      <div class="panel-body">
+        <% @dashboard.active_projects.each do |project| %>
+          <p><%= project.name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading yellow-heading">Moje radionice</div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
+  </div>
+<div>

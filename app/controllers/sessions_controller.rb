@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+  skip_before_filter :restrict_access, except: :destroy
   respond_to :html
+  layout 'public'
 
   def new
   end
