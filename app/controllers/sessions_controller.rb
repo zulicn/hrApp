@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
 
   def create
     user = authenticate_session(session_params)
-    if user.is_accepted
+    if user && user.is_accepted
       sign_in(user) do
         if user.is_admin?
           respond_with(user, location: admin_dashboard_path) and return
-        else 
+        else
           respond_with(user, location: dashboard_path) and return
         end
       end

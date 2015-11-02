@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = sign_up(user_params.merge(role_id: Role.member.id))
+    @user = sign_up(user_params.merge(role_id: Role.member.id, is_accepted: false))
     redirect_to root_path
   end
 
