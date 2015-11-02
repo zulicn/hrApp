@@ -7,21 +7,23 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :users, only: [:index, :show] do
+      post 'accept', on: :member
+      post 'promote', on: :member
+    end
+
     resource :dashboard, only: :show
   end
 
   resources :projects
   resources :events
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :index, :show, :edit] do
-    post 'accept', on: :member
-    post 'promote', on: :member
-  end
+  resources :users, only: [:new, :create, :edit] 
   resource :dashboard, only: :show
 
   resources :memberships do
     post :reject, on: :collection
   end
 
-  root 'welcome#index'
+  root 'welcomes#show'
 end
