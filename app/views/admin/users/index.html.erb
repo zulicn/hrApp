@@ -1,0 +1,117 @@
+<div class="users-container">
+
+  <h1 class="page-title">Članovi</h1>
+
+  <br><br>
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">Nepotvrdjene prijave</div>
+        <% if @new_users.empty? %>
+          <div class="panel-body">
+            <p> Nema novih prijava. </p>
+          </div>
+        <% else %>
+         <table class="table table-hover">
+            <thead>
+              <th> Ime </th>
+              <th> Prezime </th>
+              <th> Email </th>
+              <th colspan="2" width="400px">Akcije</th>
+            </thead>
+
+            <tbody>
+              <% @new_users.each do |user| %>
+                <tr>
+                  <td><%= user.firstname %></td>
+                  <td><%= user.firstname %></td>
+                  <td><%= user.email %></td>
+                  <td width="200px"><%= button_to 'Potvrdi', accept_admin_user_path(user), remote: true, class: 'btn-link' %></td>
+                  <td width="200px"><button type="button" data-toggle="modal" data-target="#userModal<%= user.id %>" class="btn-link">Pogledaj cijelu prijavu</button></td>
+                  
+                  <div class="modal fade" id="userModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="modalLabel">Prijava</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="user"><div class="info">Ime:</div> <div class="info-detail"><%= user.firstname %></div></div>
+                          <div class="user"><div class="info">Prezime:</div> <div class="info-detail"><%= user.lastname %></div></div>
+                          <div class="user"><div class="info">Email:</div> <div class="info-detail"><%= user.email %></div></div>
+                          <div class="user"><div class="info">Mjesto rodjenja:</div> <div class="info-detail"><%= user.place_of_birth %></div></div>
+                          <div class="user"><div class="info">Datum rodjenja:</div>
+                          <div class="info-detail">
+                            <% if user.birth_date %> 
+                              <%= user.birth_date.strftime("%m.%d.%Y.") %>
+                            <% end %>
+                          </div></div>
+                          <div class="user"><div class="info">Smjer:</div> <div class="info-detail"><%= user.department.name %></div></div>
+                          <div class="user"><div class="info">Telefon:</div> <div class="info-detail"><%= user.phone %></div></div>
+                          <div class="user"><div class="info">Prethodno iskustvo:</div> <div class="info-detail"><%= user.previous_experience %></div></div>
+                          <div class="user"><div class="info">Razlog učlanjenja:</div> <div class="info-detail"><%= user.reason_of_enrollment %></div></div>
+                          <div class="user"><div class="info">Dodatne vještine:</div> <div class="info-detail"><%= user.additional_skills %></div></div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+      <div class="panel panel-default">
+        <div class="panel-heading accepted">Članovi
+        <div class="search-right-menu pull-right">
+          <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Unesi ime", class: "form-control" %>
+            </div>
+            <%= submit_tag "Traži", class: "btn btn-default pull-left" %>
+          <% end %>
+        </div>
+        </div>
+          <table class="table table-hover">
+            <thead>
+              <th> Ime </th>
+              <th> Prezime </th>
+              <th> Email </th>
+              <th colspan="2" width="400px">Akcije</th>
+            </thead>
+
+            <tbody>
+              <% @accepted_users.each do |user| %>
+                <tr>
+                  <td><%= user.firstname %></td>
+                  <td><%= user.firstname %></td>
+                  <td><%= user.email %></td>
+                  <td width="200px"><%= link_to 'Pogledaj detalje', admin_user_path(user) %></td>
+                  <td width="200px">
+                  <% if user.is_admin? %>
+                    Administrator
+                  <% else %>
+                    <%= button_to 'Promoviraj u administratora', promote_admin_user_path(user), remote: true, class: 'btn-link' %>
+                  <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

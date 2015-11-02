@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def is_admin?
     role.name === 'Admin'
   end
+
+  def self.search(search)
+    where("firstname LIKE ?", "%#{search}%")
+  end
 end

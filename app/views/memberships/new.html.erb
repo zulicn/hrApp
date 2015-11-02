@@ -1,0 +1,28 @@
+<%= form_tag(params.merge(:controller => "memberships", :action => "create"), { class: 'col-lg-6' }) do %>
+  <div>
+    <p><%= @project.name %></p>
+    <small><%= @project.description %></small><br>
+    <small><%= @project.start_date %> - <%= @project.end_date %></small>
+  </div>
+  <div class="form-group">
+    <p>Izaberite timove koji će učestvovati u ovom projektu</p>
+    <% @project.teams.each do |team| %>
+      <span><%= check_box_tag 'teams[]', team.id %> <%= team.shortcode %></span>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Spasi', disabled: true, class: 'btn btn-default' %>
+    <%= link_to 'Ne želim raditi za ovaj projekat', params.merge(:controller => "memberships", :action => "reject"), method: :post, class: 'btn btn-danger' %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("input[type='checkbox'").click(function() {
+      if($('input[name="teams[]"]:checked').length > 0) {
+        $('input[type="submit"]').removeAttr('disabled')
+      } else {
+        $('input[type="submit"').attr('disabled', 'disabled');
+      }
+    })
+  });
+</script>
