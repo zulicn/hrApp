@@ -117,3 +117,96 @@
 	text-align: center;
 	padding-top: 17px;
 }
+
+/*login form*/
+.login-form
+{
+	background: url(transparentcover.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+p.form-title
+{
+    font-family: 'Hind';
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+
+form.login input[type="email"], form.login input[type="password"], form.login input[type="text"], form.login input[type="date"], form.login textarea
+{
+    width: 100%;
+    margin: 0;
+    padding: 10px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #000000;
+    outline: 0;
+}
+
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+form.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+form.login 
+{
+    float: left;
+    width: 100%;
+    padding-right:50px;
+}
+form.login 
+{
+    min-height: 20px;
+}
+form.login label
+{
+	font-family: 'Hind';
+    font-size: 12px;
+    font-weight: 400;
+    color: #000000;
+}
+
+
+
+
+

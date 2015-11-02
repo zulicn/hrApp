@@ -1,39 +1,112 @@
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="login-form">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+              <%= form_for @user, html: {class: 'form-horizontal login'} do |f| %>
+                <% if @user.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                    <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
 
-  <div>
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
+                <p class="form-title">Registracija</p>
+                <div class="field form-group">
+                  <%= f.label :firstname, 'Ime:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :firstname %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :lastname, 'Prezime:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :lastname %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :username, 'Korisničko ime:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :username %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :email, class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.email_field :email %>
+                  </div>
+                </div>    
+                <div class="field form-group">
+                  <%= f.label :phone, 'Broj telefona:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :phone %>
+                  </div>
+                </div> 
+                <div class="field form-group">
+                  <%= f.label :department_id, 'Smjer:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :department_id %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :birth_date, 'Datum rođenja:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.date_field :birth_date %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :place_of_birth, 'Mjesto rođenja:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_field :place_of_birth %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :previous_experience, 'Prethodno iskustvo:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_area :previous_experience %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :reason_of_enrollment, 'Razlog učlanjenja:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_area :reason_of_enrollment %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :additional_skills, 'Dodatne vještine:', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.text_area :additional_skills %>
+                  </div>
+                </div>
+                <div class="field form-group">
+                  <%= f.label :password, 'Šifra', class: 'col-sm-2 control-label' %>
+                  <div class="col-sm-10">
+                  <%= f.password_field :password %>
+                  </div>
+                </div>
+                <div class="actions form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit "Učlani se", class: 'tn btn-success btn-sm' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      </div>
   </div>
+</div>
 
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :role_id %>
-    <%= f.password_field :role_id %>
-  </div>
-  <div>
-    <%= f.label :department_id %>
-    <%= f.password_field :department_id %>
-  </div>
-  <div>
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+
+
+
+
+
+
+
+
 
