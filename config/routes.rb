@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :events
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit] 
+  resources :users, only: [:new, :create, :edit, :update] 
   resource :dashboard, only: :show
 
   resources :memberships do

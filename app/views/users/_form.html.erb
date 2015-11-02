@@ -15,8 +15,11 @@
                     </ul>
                   </div>
                 <% end %>
-
-                <p class="form-title">Registracija</p>
+                <%if @edit %>
+                  <p class="form-title">Edit Profila</p>
+                <%else%>
+                  <p class="form-title">Registracija</p>
+                <%end%>
                 <div class="field form-group">
                   <%= f.label :firstname, 'Ime:', class: 'col-sm-2 control-label' %>
                   <div class="col-sm-10">
@@ -83,15 +86,21 @@
                   <%= f.text_area :additional_skills %>
                   </div>
                 </div>
-                <div class="field form-group">
-                  <%= f.label :password, 'Šifra', class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                  <%= f.password_field :password %>
+                <% unless @edit %>
+                  <div class="field form-group">
+                    <%= f.label :password, 'Šifra', class: 'col-sm-2 control-label' %>
+                    <div class="col-sm-10">
+                    <%= f.password_field :password %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
                 <div class="actions form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                  <%= f.submit "Učlani se", class: 'tn btn-success btn-sm' %>
+                  <%if @edit %>
+                    <%= f.submit "Edituj profil", class: 'tn btn-success btn-sm' %>
+                  <%else%>
+                   <%= f.submit "Učlani se", class: 'tn btn-success btn-sm' %>
+                  <%end%>
                   </div>
                 </div>
               <% end %>
