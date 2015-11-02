@@ -8,12 +8,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    
     @user = sign_up(user_params.merge(role_id: Role.member.id))
-    sign_in(@user) do
-      respond_with(@user, location: root_path) and return
-    end
-    render :new
+    redirect_to root_path
   end
 
   private
