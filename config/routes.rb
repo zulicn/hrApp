@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   resources :projects
   resources :events
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :index, :show, :edit]
+  resources :users, only: [:new, :create, :index, :show, :edit] do
+    post 'accept', on: :member
+    post 'promote', on: :member
+  end
   resource :dashboard, only: :show
 
   resources :memberships do
