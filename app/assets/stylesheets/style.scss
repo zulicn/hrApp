@@ -39,7 +39,7 @@
 
 .dashboard {
 	.navbar-right {
-	  padding-right: 80px;
+	  padding-right: 20px;
 	}
 	.navbar {
 	  .btn-projects, .btn-events, .btn-users, .btn-workshops, .btn-dashboard {
@@ -86,13 +86,12 @@
 .dashboard-container {
 	font-family: 'Hind';
 	font-weight: 500;
-	padding: 75px 25px 0px;
+	padding: 75px 25px 40px;
   background: url(transparentcover.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
 	.panel {
 		height: 320px;
 		background: transparent;
@@ -128,10 +127,11 @@
 	padding-top: 17px;
 }
 
-/*login form*/
+/*login and registration form*/
 .login-form
 {
-	background: url(transparentcover.png) no-repeat center center fixed; 
+	/*background: url(transparentcover.png) no-repeat center center fixed;*/
+	background: url(cover.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -139,82 +139,80 @@
   height: 100vh;
 }
 
-.wrap
+.registration-form
 {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 99;
+  background: url(cover.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200vh;
 }
 
 p.form-title
 {
     font-family: 'Hind';
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
     text-align: center;
-    color: #000000;
-    margin-top: 5%;
+    color: #62B948;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-
-
-form.login input[type="email"], form.login input[type="password"], form.login input[type="text"], form.login input[type="date"], form.login textarea
+.btn-signup, .btn-signup:hover
 {
-    width: 100%;
-    margin: 0;
-    padding: 10px 10px;
-    background: 0;
-    border: 0;
-    border-bottom: 1px solid #000000;
-    outline: 0;
-    font-style: italic;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    color: #000000;
-    outline: 0;
+	color: $green;
+	border-color: $green;
+}
+form[name=form-center]{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:10%;
+
+    background:#F7F7F7;
+    border-radius: 25px;
+    border: 2px solid #62B948;
+    padding: 20px;
 }
 
-form.login input[type="submit"]
-{
-    width: 100%;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 16px;
-    outline: 0;
-    cursor: pointer;
-    letter-spacing: 1px;
+form[name=form-centerr]{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:3%;
+
+    background:#F7F7F7;
+    border-radius: 25px;
+    border: 2px solid #62B948;
+    padding: 20px; 
 }
 
-form.login input[type="submit"]:hover
-{
-    transition: background-color 0.5s ease;
+form[name=form-centerrp]{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:15%;
+
+    background:#F7F7F7;
+    border-radius: 25px;
+    border: 2px solid #62B948;
+    padding: 20px; 
 }
 
-form.login 
-{
-    float: left;
-    width: 100%;
-    padding-right:50px;
+
+form[name=form-centerr] label {
+	color:#62B948;
 }
-form.login 
-{
-    min-height: 20px;
+
+form[name=form-center] label {
+	color:#62B948;
 }
-form.login label
-{
-	font-family: 'Hind';
-    font-size: 12px;
-    font-weight: 400;
-    color: #000000;
+
+form[name=form-centerrp] label {
+	color:#62B948;
 }
+.pacific-blue > a, .pacific-blue > a:hover, {
+		color: $pacific-blue !important;
+	}
+
 
 .page-title {
 	text-align: center;
@@ -234,7 +232,7 @@ form.login label
 		}
 	}
 	.modal-title {
-		text-align: center;		
+		text-align: center;
 	}
 	.modal-body {
 		.user {

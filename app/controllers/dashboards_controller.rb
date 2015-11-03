@@ -1,5 +1,9 @@
 class DashboardsController < ApplicationController
   def show
-    @dashboard = Dashboard.new(current_user).build
+    if current_user.is_admin?
+      redirect_to admin_dashboard_path
+    else
+      @dashboard = Dashboard.new(current_user).build
+    end
   end
 end

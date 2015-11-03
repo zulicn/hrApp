@@ -1,2 +1,22 @@
+<div class="registration-form">
+              <%= form_for @user, html: {class: 'col-lg-6', name: 'form-centerr'} do |f| %>
+                <% if @user.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<%= render 'form' %>
+                    <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+				<%= render partial: 'form', :locals => { :f => f, :submit_label => "Učlani se" } %>
+
+				<div class="pacific-blue">
+                  <%= link_to 'Već ste učlanjeni? Prijavite se!', new_session_path %>
+                </div>
+
+			<% end %>
+</div>

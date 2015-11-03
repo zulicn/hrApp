@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   namespace :admin do
     resources :projects do
       member do
@@ -18,12 +22,14 @@ Rails.application.routes.draw do
   resources :projects
   resources :events
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit] 
+  resources :users, only: [:new, :create, :edit, :update] 
   resource :dashboard, only: :show
 
   resources :memberships do
     post :reject, on: :collection
   end
+
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   root 'welcomes#show'
 end

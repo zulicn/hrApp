@@ -1,0 +1,34 @@
+<% provide(:title, 'Reset password') %>
+<div class="login-form">
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+
+
+              <%= form_for(@user, url: password_reset_path(params[:id]),html: {class: 'col-lg-6', name: 'form-centerrp'}) do |f| %>
+              
+                <p class="form-title">Reset sifre</p>
+
+                <div class="field form-group">
+                  <%= hidden_field_tag :email, @user.email %>
+
+                  <%= f.label :password ,"Sifra" %>
+                  <%= f.password_field :password, class: 'form-control' %>
+                </div>
+
+                <div class="field form-group">
+                  <%= f.label :password_confirmation, "Potvrda" %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.submit "Promjeni sifru", class: "btn btn-default btn-signup" %>
+                </div>
+              <% end %>
+     		 	</div>
+		</div>
+	</div>
+ </div>
+</div>
+
