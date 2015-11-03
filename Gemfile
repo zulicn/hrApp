@@ -49,7 +49,7 @@ group :development, :test do
   gem "nokogiri", ">= 1.6.7.rc"
   gem 'tzinfo-data'
   gem 'monban'
-  gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+  gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
   gem 'responders', '~> 2.0'
 end
 

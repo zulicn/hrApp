@@ -39,7 +39,7 @@
 
 .dashboard {
 	.navbar-right {
-	  padding-right: 80px;
+	  padding-right: 20px;
 	}
 	.navbar {
 	  .btn-projects, .btn-events, .btn-users, .btn-workshops, .btn-dashboard {
@@ -86,13 +86,12 @@
 .dashboard-container {
 	font-family: 'Hind';
 	font-weight: 500;
-	padding: 75px 25px 0px;
+	padding: 75px 25px 40px;
   background: url(transparentcover.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
 	.panel {
 		height: 320px;
 		background: transparent;
@@ -131,7 +130,7 @@
 /*login and registration form*/
 .login-form
 {
-	/*background: url(transparentcover.png) no-repeat center center fixed;*/ 
+	/*background: url(transparentcover.png) no-repeat center center fixed;*/
 	background: url(cover.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -142,8 +141,7 @@
 
 .registration-form
 {
-	/*background: url(transparentcover.png) no-repeat center center fixed;*/
-	background: url(cover.jpg) no-repeat center center fixed; 
+  background: url(cover.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -161,7 +159,7 @@ p.form-title
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-.btn-signup, .btn-signup:hover 
+.btn-signup, .btn-signup:hover
 {
 	color: $green;
 	border-color: $green;
@@ -174,7 +172,7 @@ form[name=form-center]{
     background:#F7F7F7;
     border-radius: 25px;
     border: 2px solid #62B948;
-    padding: 20px; 
+    padding: 20px;
 }
 
 form[name=form-centerr]{
@@ -220,7 +218,7 @@ form[name=form-center] label {
 		}
 	}
 	.modal-title {
-		text-align: center;		
+		text-align: center;
 	}
 	.modal-body {
 		.user {
