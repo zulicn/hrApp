@@ -141,7 +141,7 @@
 
 .registration-form
 {
-  background: url(cover.png) no-repeat center center fixed;
+  background: url(cover.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -186,6 +186,17 @@ form[name=form-centerr]{
     padding: 20px; 
 }
 
+form[name=form-centerrp]{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:15%;
+
+    background:#F7F7F7;
+    border-radius: 25px;
+    border: 2px solid #62B948;
+    padding: 20px; 
+}
+
 
 form[name=form-centerr] label {
 	color:#62B948;
@@ -195,6 +206,9 @@ form[name=form-center] label {
 	color:#62B948;
 }
 
+form[name=form-centerrp] label {
+	color:#62B948;
+}
 .pacific-blue > a, .pacific-blue > a:hover, {
 		color: $pacific-blue !important;
 	}
