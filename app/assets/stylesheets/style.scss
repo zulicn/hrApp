@@ -141,12 +141,12 @@
 
 .registration-form
 {
-	background: url(transparentcover.png) no-repeat center center fixed;
+  background: url(transparentcover.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 180vh;
+  height: 200vh;
 }
 
 p.form-title
@@ -155,7 +155,7 @@ p.form-title
     font-size: 25px;
     font-weight: 600;
     text-align: center;
-    color: #000000;
+    color: #62B948;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
@@ -174,6 +174,27 @@ form[name=form-center]{
     border: 2px solid #62B948;
     padding: 20px;
 }
+
+form[name=form-centerr]{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:3%;
+
+    background:#F7F7F7;
+    border-radius: 25px;
+    border: 2px solid #62B948;
+    padding: 20px; 
+}
+
+
+form[name=form-centerr] label {
+	color:#62B948;
+}
+
+form[name=form-center] label {
+	color:#62B948;
+}
+
 .pacific-blue > a, .pacific-blue > a:hover, {
 		color: $pacific-blue !important;
 	}
