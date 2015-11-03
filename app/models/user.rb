@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("firstname LIKE ?", "%#{search}%")
+    where("CONCAT(firstname, ' ', lastname) LIKE ?", "%#{search}%")
   end
 
 # Returns a random token.
