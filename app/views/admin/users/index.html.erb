@@ -78,7 +78,7 @@
         <div class="search-right-menu pull-right">
           <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
             <div class="form-group">
-              <%= text_field_tag :search, params[:search], placeholder: "Unesi ime", class: "form-control" %>
+              <%= text_field_tag :search, params[:search], placeholder: "Traži člana", class: "form-control" %>
             </div>
             <%= submit_tag "Traži", class: "btn btn-default pull-left" %>
           <% end %>
