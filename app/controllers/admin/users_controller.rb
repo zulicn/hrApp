@@ -1,6 +1,7 @@
 module Admin
   class UsersController < AdminController
   	respond_to :html
+    before_action :restrict_access, only: [:accept, :promote]
 
     def index
       @new_users = User.where(is_accepted: false)
@@ -13,18 +14,24 @@ module Admin
 
     # Accept user
     def accept
-      user = User.find(params[:id])
-      user.is_accepted = true
-      user.save!
-      redirect_to users_path
+      @user = User.find(params[:id])
+      @user.is_accepted = true
+      @user.save!      
+      respond_to do |format|
+        format.html { redirect_to users_path }
+        format.js { }
+      end
     end
 
     # Promote user to admin
     def promote
-      user = User.find(params[:id])
-      user.role = Role.find_by(name: 'Admin')
-      user.save!
-      redirect_to users_path
+      @user = User.find(params[:id])
+      @user.role = Role.find_by(name: 'Admin')
+      @user.save!
+      respond_to do |format|
+        format.html { redirect_to users_path }
+        format.js { }
+      end
     end
 
     def show
