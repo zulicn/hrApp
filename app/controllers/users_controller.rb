@@ -10,7 +10,15 @@ class UsersController < ApplicationController
 
   def create
     @user = sign_up(user_params.merge(role_id: Role.member.id, is_accepted: false))
-    redirect_to root_path
+    respond_to do |format|
+      if @user
+        format.html { redirect_to dashboard_path, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -18,8 +26,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes(user_params)
-    redirect_to dashboard_path
+    respond_to do |format|
+      if @user.update_attributes(user_params)
+        format.html { redirect_to dashboard_path, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
