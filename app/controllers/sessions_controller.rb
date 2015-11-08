@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         end
       end
     else
-      respond_with(user, location: root_path) and return
+      respond_with(user, location: dashboard_path) and return
     end
     render :new
   end
