@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :workshops
+
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member
