@@ -3,11 +3,11 @@
                 <p class="form-title">Login</p>
                 <div class="form-group">
                   <%= form.label :email %>
-                  <%= form.email_field :email, class: 'form-control' %>
+                  <%= form.email_field :email, class: 'form-control', required: true  %>
                 </div>
                 <div class="field form-group">
                   <%= form.label :password, 'Šifra' %>
-                  <%= form.password_field :password, class: 'form-control'  %>
+                  <%= form.password_field :password, class: 'form-control', required: true   %>
                   <div class="pacific-blue">
                     <%= link_to "(zaboravljena sifra)", new_password_reset_path %>
                   </div>

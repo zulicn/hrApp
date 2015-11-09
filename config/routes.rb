@@ -17,9 +17,11 @@ Rails.application.routes.draw do
     end
 
     resource :dashboard, only: :show
+    resources :teams
   end
 
   resources :projects
+  resources :teams
   resources :events
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update] 
