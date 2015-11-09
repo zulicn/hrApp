@@ -1,5 +1,7 @@
 module Admin
   class ProjectsController < AdminController
+    before_filter :check_submit, only: [:create, :update]
+
     def index
       @projects = Project.all.order(:start_date).reverse
     end
@@ -53,6 +55,10 @@ module Admin
 
     def project_params
       params.require(:project).permit(:name, :description, :start_date, :end_date)
+    end
+
+    def check_submit
+      return redirect_to admin_projects_path if params[:cancel].present?
     end
   end
 end
