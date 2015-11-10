@@ -254,6 +254,7 @@ form[name=form-centerrp] label {
 			}
 		}
 	}
+
 	.modal-title {
 		text-align: center;
 	}
@@ -274,12 +275,24 @@ form[name=form-centerrp] label {
 			width: 350px;
 		}
 	}
+	.panel-heading{
+		background-color: $red;
+	}
+	.accepted{
+		background-color: #D1E231;
+	}
 	.panel-heading.accepted {
 		line-height: 35px;
 		height: 55px;
+		background-color: $red;
 	}
+	.new{
+		background-color: #CDC9C9;
+	}
+
 	.search-right-menu {
 		width: 300px;
+		height: 55px;
 		.form-group {
 			float: left;
 		}
