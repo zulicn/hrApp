@@ -30,14 +30,15 @@
           <%= link_to 'Članovi', admin_users_path, class: 'btn btn-default btn-users' %>
           <%= link_to 'Projekti', admin_projects_path, class: 'btn btn-default btn-projects' %>
           <%= link_to 'Događaji', events_path, class: 'btn btn-default btn-events' %>
-          <%= link_to 'Radionice', admin_projects_path, class: 'btn btn-default btn-workshops' %>
+          <%= link_to 'Radionice', admin_workshops_path, class: 'btn btn-default btn-workshops' %>
+          <%= link_to 'Godišnji timovi', admin_teams_path, class: 'btn btn-default btn-team' %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="pacific-blue"><span class="glyphicon glyphicon-user"></span> <%= @current_user.fullname%>  <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li class="pacific-blue"><%= link_to 'Uredi profil', root_path %></li>
+              <li class="pacific-blue"><%= link_to 'Uredi profil', edit_user_path(@current_user) %></li>
               <li class="pacific-blue"><%= link_to 'Odjavi se!', session_path, method: :delete %></li>
             </ul>
           </li>

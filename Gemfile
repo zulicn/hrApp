@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use pg databes
 gem 'pg'
 # Use SCSS for stylesheets
@@ -27,8 +25,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Use monban for auth
+gem 'monban'
+gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
+
+gem 'responders', '~> 2.0'
+
+gem 'rails_12factor', group: :production
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -48,8 +52,5 @@ group :development, :test do
 
   gem "nokogiri", ">= 1.6.7.rc"
   gem 'tzinfo-data'
-  gem 'monban'
-  gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
-  gem 'responders', '~> 2.0'
 end
 

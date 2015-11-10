@@ -1,0 +1,2 @@
+$('tbody.accepted').append("<%= j render partial: 'user', locals: {user: @user} %>");
+$('tr.new<%= @user.id %>').remove();
