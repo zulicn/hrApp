@@ -24,7 +24,9 @@
 
 .navbar {
   font-family: 'Hind';
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
 
   .blue, .blue:hover {
 		color: $blue !important;
@@ -77,9 +79,9 @@
 		margin-top: 8px;
 	    margin-right: 10px;
     	padding: 8px 10px 5px;
-  	color: $red;
-  	border-color: $red;
-  	margin-left: 30px;
+	  	color: $red;
+	  	border-color: $red;
+	  	
   }
 }
 
@@ -93,11 +95,19 @@
   -o-background-size: cover;
   background-size: cover;
 	.panel {
+    .notification {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
 		height: 320px;
 		background: transparent;
 		overflow: auto;
 		.panel-heading {
 			color: #fff;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 16px;
 		}
 		.red-heading {
 			background-color: $red;
@@ -149,6 +159,14 @@
   height: 200vh;
 }
 
+.projects-form{
+	height: 100vh;
+}
+
+.teams-form{
+	height: 70vh;
+}
+
 p.form-title
 {
     font-family: 'Hind';
@@ -174,6 +192,11 @@ form[name=form-center]{
     border: 2px solid #62B948;
     padding: 20px;
 }
+form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop{
+  margin-top: 5%;
+}
+
+
 
 form[name=form-centerr]{
     margin-left: 25%;
@@ -183,7 +206,7 @@ form[name=form-centerr]{
     background:#F7F7F7;
     border-radius: 25px;
     border: 2px solid #62B948;
-    padding: 20px; 
+    padding: 20px;
 }
 
 form[name=form-centerrp]{
@@ -194,7 +217,7 @@ form[name=form-centerrp]{
     background:#F7F7F7;
     border-radius: 25px;
     border: 2px solid #62B948;
-    padding: 20px; 
+    padding: 20px;
 }
 
 

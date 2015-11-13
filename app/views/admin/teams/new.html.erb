@@ -1,0 +1,5 @@
+<div class="teams-form">
+	<%= form_for @team, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
+	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Spasi" } %>
+	<% end %>
+</div>

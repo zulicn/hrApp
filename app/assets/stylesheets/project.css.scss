@@ -1,5 +1,14 @@
+@import 'variables';
+
 .project-active {
-  background-color: #D1E231;
+  background-color: $green;
+
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #fff;
+  }
 }
 
 .project-archived {
