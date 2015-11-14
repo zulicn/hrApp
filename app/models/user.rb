@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor  :reset_token
   belongs_to :role
   belongs_to :department
+  has_many :tasks
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
         put 'archive'
         put 'activate'
       end
+      resources :project_teams, only: :show do
+        resources :tasks, only: [:new, :create]
+      end
     end
 
     resources :workshops
