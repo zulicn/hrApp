@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use monban for auth
 gem 'monban'
-gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
+gem 'bcrypt-ruby', '3.1.2', :require => 'bcrypt'
 
 gem 'responders', '~> 2.0'
 

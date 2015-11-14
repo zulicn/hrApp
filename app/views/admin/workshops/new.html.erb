@@ -1,5 +1,5 @@
 <div class="projects-form">
-	<%= form_for @project, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
+	<%= form_for @workshop, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
 	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Spasi" } %>
 	<% end %>
 </div>
