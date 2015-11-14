@@ -1,0 +1,36 @@
+<div class="image-transparent-container project-container">
+	<div class="col-lg-4 left">
+		<div class="name">Naziv projekta: <%= @project.name %> </div>
+
+		<div class="desc"><b>Opis projekta:</b> <%= @project.description %></div>
+
+		<div class="when"><b>Kada?</b> <%= @project.start_date %> - <%= @project.end_date %> </div>
+	</div>
+
+	<div class="col-lg-8 right">
+		<div class="row">
+			<% @project.project_teams.each do |project_team| %>
+			<div class="col-lg-6">
+			  <div class="panel panel-default">
+			      <div class="panel-heading pacific-heading">
+				      <%= project_team.team.shortcode %>
+				      <%= button_to 'Dodaj novi task', new_admin_project_project_team_task_path(@project, project_team), class: 'pull-right btn btn-default', :method => :get%>
+			      </div>
+			      <div class="panel-body">
+			      <ul class="list-group">
+			        <% project_team.tasks.each do |task| %>
+			            <li class="list-group-item">
+						    <span class="badge"><%= task.user_tasks.count %> <span class="glyphicon glyphicon-user"></span></span>
+						    <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
+						    <%= task.name %>
+						 </li>
+			        <% end %>
+			      </ul>
+			      </div>
+			  </div>
+			</div>
+			<% end %>
+		</div>
+
+	</div>
+</div>
