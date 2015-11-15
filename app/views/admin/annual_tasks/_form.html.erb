@@ -1,0 +1,28 @@
+<div class="form-group">
+  <%= f.label :name, 'Naziv' %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :description, 'Opis' %>
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :num_of_members, 'Broj potrebnih clanova' %>
+  <%= f.number_field :num_of_members, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline_to_apply, 'Krajnji datum za prijave' %>
+  <%= f.date_field :deadline_to_apply, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline, 'Krajnji datum za zavrsetak zadatka' %>
+  <%= f.date_field :deadline, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :note, 'Upute' %>
+  <%= f.text_area :note, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.submit submit_label, class: "btn btn-success" %>
+  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+</div>

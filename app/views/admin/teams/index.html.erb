@@ -20,11 +20,13 @@
               <td><%= team.name %></td>
               <td><%= team.shortcode %></td>
               <td>
+                <%= button_to 'Dodaj novi task', new_admin_team_annual_task_path(team, @team), class: 'pull-right btn btn-default', :method => :get%>
                 <%= link_to 'Promijeni', edit_admin_team_path(team) %> |
                 <%= link_to 'Izbriši', admin_team_path(team), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
                 <!--TBD dodaj task-->
               </td>
             </tr>
+
           <% end %>
           </tbody>
         </table>
