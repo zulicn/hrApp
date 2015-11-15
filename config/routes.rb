@@ -41,6 +41,10 @@ Rails.application.routes.draw do
     post :reject, on: :collection
   end
 
+  resources :events, only: [:show] do
+    post :join, on: :member
+  end
+
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
   root 'welcomes#show'

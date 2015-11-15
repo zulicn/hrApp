@@ -18,6 +18,9 @@ module Admin
     def create
       event = Event.create(event_params)
       event.save!
+      if params[:should_send_email]
+        # Send email
+      end
       redirect_to admin_events_path
     end
 
@@ -48,7 +51,7 @@ module Admin
 
 
     def event_params
-      params.require(:event).permit(:name, :description, :start_date, :end_date)
+      params.require(:event).permit(:name, :description, :start_date, :end_date, :event_type_id, :is_chargeable, :should_record_attendence)
     end
 
     def check_submit

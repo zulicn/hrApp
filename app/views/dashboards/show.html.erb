@@ -20,13 +20,15 @@
   <div class="col-lg-4">
   <div class="panel panel-default">
     <div class="panel-heading pacific-heading">
-      <span class="glyphicon glyphicon-calendar"></span> Aktuelni događaji
-      <% if @current_user.is_admin? %>
-        <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj"></span>
-      <% end %>
-    </div>
+      <span class="glyphicon glyphicon-calendar"></span> Aktuelni događaji</div>
     <div class="panel-body">
-      Nema aktuelnih događaja.
+      <% if @dashboard.active_events.empty? %>
+        Nema aktuelnih događaja.
+      <% else %>
+        <% @dashboard.active_events.each do |event| %>
+          <p><%= event.name %>  Vrijeme: <%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %></p>
+        <% end %>
+      <% end %>
     </div>
   </div>
   </div>

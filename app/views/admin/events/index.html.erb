@@ -22,8 +22,8 @@
             <tr class="event-active">
               <td><%= event.name %></td>
               <td><small><%= event.description %></small></td>
-              <td><%= event.start_date %></td>
-              <td><%= event.end_date %></td>
+              <td><%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %></td>
+              <td><%= event.end_date.strftime("%d.%m.%Y.  %H:%M") %></td>
               <td>
                 <%= link_to 'Promijeni', edit_admin_event_path(event) %> |
                 <% if event.is_active %>

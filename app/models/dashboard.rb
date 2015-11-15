@@ -1,5 +1,5 @@
 class Dashboard
-  attr_accessor :notifications, :active_projects
+  attr_accessor :notifications, :active_projects, :active_events
 
   def initialize(user)
     @user = user
@@ -22,6 +22,14 @@ class Dashboard
       notifications << Notification.new(
         message: "Kreiran je novi projekat #{project.name}, da li želite učestvovati",
         link: "/memberships/new?project_id=#{project.id}"
+      )
+    end
+
+    events = Event.all
+    events.each do |event|
+      notifications << Notification.new(
+        message: "Kreiran je novi event #{event.name}, da li planirate prisustvovati",
+        link: "/events/#{event.id}"
       )
     end
   end
