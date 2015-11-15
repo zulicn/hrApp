@@ -10,6 +10,18 @@
   height: 100vh;
 }
 
+.title {
+	color: $green;
+}
+
+body {
+  background: url(transparentcover.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .pull-right {
 	float: right;
 }
@@ -24,7 +36,9 @@
 
 .navbar {
   font-family: 'Hind';
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
 
   .blue, .blue:hover {
 		color: $blue !important;
@@ -77,9 +91,9 @@
 		margin-top: 8px;
 	    margin-right: 10px;
     	padding: 8px 10px 5px;
-  	color: $red;
-  	border-color: $red;
-  	margin-left: 30px;
+	  	color: $red;
+	  	border-color: $red;
+	  	
   }
 }
 
@@ -87,17 +101,20 @@
 	font-family: 'Hind';
 	font-weight: 500;
 	padding: 75px 25px 40px;
-  background: url(transparentcover.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 	.panel {
+    .notification {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
 		height: 320px;
 		background: transparent;
 		overflow: auto;
 		.panel-heading {
 			color: #fff;
+		    font-weight: 800;
+		    letter-spacing: 2px;
+		    font-size: 16px;
 		}
 		.red-heading {
 			background-color: $red;
@@ -149,6 +166,14 @@
   height: 200vh;
 }
 
+.projects-form{
+	height: 100vh;
+}
+
+.teams-form{
+	height: 70vh;
+}
+
 p.form-title
 {
     font-family: 'Hind';
@@ -174,6 +199,11 @@ form[name=form-center]{
     border: 2px solid #62B948;
     padding: 20px;
 }
+form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop{
+  margin-top: 5%;
+}
+
+
 
 form[name=form-centerr]{
     margin-left: 25%;
@@ -183,7 +213,7 @@ form[name=form-centerr]{
     background:#F7F7F7;
     border-radius: 25px;
     border: 2px solid #62B948;
-    padding: 20px; 
+    padding: 20px;
 }
 
 form[name=form-centerrp]{
@@ -194,7 +224,7 @@ form[name=form-centerrp]{
     background:#F7F7F7;
     border-radius: 25px;
     border: 2px solid #62B948;
-    padding: 20px; 
+    padding: 20px;
 }
 
 
@@ -231,6 +261,7 @@ form[name=form-centerrp] label {
 			}
 		}
 	}
+
 	.modal-title {
 		text-align: center;
 	}
@@ -251,15 +282,79 @@ form[name=form-centerrp] label {
 			width: 350px;
 		}
 	}
+	.panel-heading{
+		background-color: $red;
+	}
+	.accepted{
+		background-color: #D1E231;
+	}
 	.panel-heading.accepted {
 		line-height: 35px;
 		height: 55px;
+		background-color: $red;
 	}
+	.new{
+		background-color: #CDC9C9;
+	}
+
 	.search-right-menu {
 		width: 300px;
+		height: 55px;
 		.form-group {
 			float: left;
 		}
 	}
 }
+
+/*PROJECT SHOW*/
+.project-container {
+	font-family: 'Hind';
+	padding-bottom: 10%;
+	.left {
+		height: 100%;
+		background-color: rgba(200, 200, 200, 0.3);
+		margin: 1% 0;
+		padding: 3%;
+		border-radius: 4px;
+		.name {
+			font-weight: 700;
+			margin: 5% 0;
+			color: $violet;
+		}
+
+		.desc {
+			margin: 2% 0;
+			color: $violet;
+		}
+
+		.when {
+			margin: 2% 0;
+			color: $violet;
+		}
+	}
+	.right {
+		height: auto;
+		background-color: rgba(200, 200, 200, 0.3);
+		margin: 1% 0 5%;
+		padding: 3%;
+		border-radius: 4px;
+		.btn {
+			margin-top: -28px;
+		    padding: 8px 5px 3px;
+		    color: #4a4a4a;
+		}
+
+		.badge.Active {
+			background: $green;
+		}
+		.badge.Finished {
+			background: $red;
+		}
+	}
+	.right.col-lg-8 {
+		margin-left: 1%;
+		width: 65% !important;
+	}
+}
+
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102194515) do
+ActiveRecord::Schema.define(version: 20151114125115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,33 @@ ActiveRecord::Schema.define(version: 20151102194515) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name",              null: false
+    t.text     "description",       null: false
+    t.integer  "num_of_members"
+    t.date     "deadline_to_apply"
+    t.date     "deadline"
+    t.text     "note"
+    t.text     "report"
+    t.integer  "creator_id",        null: false
+    t.integer  "project_team_id"
+    t.integer  "team_id"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "shortcode",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.text     "admin_report"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,6 +122,14 @@ ActiveRecord::Schema.define(version: 20151102194515) do
   create_table "welcomes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "workshops", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "lc"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
 end
