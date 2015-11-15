@@ -5,11 +5,13 @@ class Dashboard
     @user = user
     @notifications = []
     @active_projects = []
+    @active_events = []
   end
 
   def build
     build_notifications
     build_active_projects
+    build_active_events
     self
   end
 
@@ -26,5 +28,9 @@ class Dashboard
 
   def build_active_projects
     @active_projects = Project.where(is_active: true)
+  end
+
+  def build_active_events
+    @active_events = Event.where(is_active: true)
   end
 end

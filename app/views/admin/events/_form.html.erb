@@ -1,0 +1,24 @@
+<div class="form-group">
+  <%= f.label :name, 'Ime' %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :description, 'Opis' %>
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :name, 'Početak' %>
+  <%= f.date_field :start_date, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :name, 'Kraj' %>
+  <%= f.date_field :end_date, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= radio_button_tag :is_chargeable,'is_chargeable', true %> S placanjem
+    <%= radio_button_tag :is_chargeable,'is_chargeable', false %> Besplatno
+</div>
+<div class="form-group">
+  <%= f.submit submit_label, class: "btn btn-success" %>
+  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+</div>

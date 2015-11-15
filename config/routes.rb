@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     end
 
     resources :workshops
-
+    resources :events do
+      member do
+        put 'archive'
+        put 'activate'
+      end
+    end
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member
@@ -22,8 +27,11 @@ Rails.application.routes.draw do
     resources :teams
   end
 
+
+
   resources :projects
   resources :teams
+  resources :events
   resources :events
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update] 

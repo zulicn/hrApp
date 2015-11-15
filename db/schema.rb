@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20151108113750) do
     t.string   "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.boolean  "is_chargeable"
+    t.boolean  "is_chargeable",default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_active",   default: true
   end
 
   create_table "guests", force: :cascade do |t|

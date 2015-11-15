@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading red-heading">
+        Događaji
+        <a href=<%= new_admin_event_path %> >
+          <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj">
+          </span>
+          </a>
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <th>Ime</th>
+            <th>Opis</th>
+            <th>Početak</th>
+            <th>Kraj</th>
+            <th></th>
+          </thead>
+          <tbody>
+          <% @events.each do |event| %>
+            <tr class="event-active">
+              <td><%= event.name %></td>
+              <td><small><%= event.description %></small></td>
+              <td><%= event.start_date %></td>
+              <td><%= event.end_date %></td>
+              <td>
+                <%= link_to 'Promijeni', edit_admin_event_path(event) %> |
+                <% if event.is_active %>
+                  <%= link_to 'Arhiviraj', archive_admin_event_path(event), method: :put %> |
+                <% else %>
+                  <%= link_to 'Aktiviraj', activate_admin_event_path(event), method: :put %> |
+                <% end %>
+                <%= link_to 'Izbriši', admin_event_path(event), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
