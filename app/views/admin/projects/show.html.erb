@@ -19,11 +19,11 @@
 			      <div class="panel-body">
 			      <ul class="list-group">
 			        <% project_team.tasks.each do |task| %>
-			            <li class="list-group-item">
-						    <span class="badge"><%= task.user_tasks.count %> <span class="glyphicon glyphicon-user"></span></span>
-						    <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
-						    <%= task.name %>
-						 </li>
+				        <li class="list-group-item">
+							    <span class="badge"><%= task.user_tasks.count %> <span class="glyphicon glyphicon-user"></span></span>
+							    <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
+							    <%= task.name %>
+							 	</li>
 			        <% end %>
 			      </ul>
 			      </div>
