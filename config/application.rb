@@ -21,6 +21,13 @@ module HrApp
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    require 'configuration'
+    Conf::Configuration.reload
+    
     config.active_record.raise_in_transactional_callbacks = true
+    MandrillMailer.configure do |config|
+      config.api_key = Conf::Configuration.get(:mail, :smtp_api_key)
+    end
   end
 end
