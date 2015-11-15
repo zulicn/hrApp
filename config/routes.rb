@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :tasks, only: [:new, :create]
       end
     end
-
+    
     resources :workshops
 
     resources :users, only: [:index, :show] do
@@ -22,7 +22,10 @@ Rails.application.routes.draw do
     end
 
     resource :dashboard, only: :show
-    resources :teams
+
+    resources :teams do
+      resources :annual_tasks, only: [:new, :create]
+    end
   end
 
   resources :projects
