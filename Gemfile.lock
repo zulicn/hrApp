@@ -53,6 +53,7 @@ GEM
     byebug (8.1.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
+    excon (0.45.4)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -69,6 +70,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
+    mandrill_mailer (1.1.0)
+      actionpack
+      activesupport
+      mandrill-api (~> 1.0.9)
     mime-types (2.6.2)
     mini_portile (0.7.0.rc4)
     minitest (5.8.2)
@@ -164,6 +172,7 @@ DEPENDENCIES
   byebug
   jbuilder (~> 2.0)
   jquery-rails
+  mandrill_mailer
   monban
   nokogiri (>= 1.6.7.rc)
   pg

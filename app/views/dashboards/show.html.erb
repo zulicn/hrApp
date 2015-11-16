@@ -13,7 +13,30 @@
     <div class="panel panel-default">
       <div class="panel-heading green-heading"><span class="glyphicon glyphicon-list"></span> Task manager</div>
       <div class="panel-body">
-        Nema aktuelnih taskova.
+        <form>
+          <label class="radio-inline">
+            <input type="radio" name="tasks" class="filterTasks" value="all_tasks" <% if !params[:tasks].present? || params[:tasks] == 'all_tasks' %>checked<% end %>> Svi taskovi
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="tasks" class="filterTasks" value="my_tasks" <% if params[:tasks] == 'my_tasks' %>checked<% end%>> Moji taskovi
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="tasks" class="filterTasks" value="open_tasks" <% if params[:tasks] == 'open_tasks' %>checked<% end %>> Otvoreni taskovi
+          </label>
+        </form>
+        <ul class="list-group">
+        <% @dashboard.tasks.each do |task| %>
+          <li class="list-group-item">
+            <span class="badge"> <%= task_label(task, @dashboard.applications) %> </span>
+            <% if task_label(task, @dashboard.applications) == 'Otvoren' %>
+              <button type="button" class="btn btn-success btn-sm" onclick="javascript:showApplicationModal('#application-modal', '<%= task.id %>', '<%= task.description %>');">
+                Prijavi se
+              </button>
+            <% end %>
+            <%= task.name %> | <%= task.project_team.team.shortcode %>
+          </li>
+        <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -56,3 +79,26 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="application-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p id="task-description"></p>
+        <%= form_tag('/user_tasks', method: :post) do %>
+          <input type="hidden" id="task_id" name="task_id" />
+          <%= submit_tag 'Prijavi se', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.filterTasks').click(function() {
+      $(this).parent().parent().submit();
+    });
+  });
+</script>

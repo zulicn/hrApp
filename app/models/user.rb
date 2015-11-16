@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor  :reset_token
   belongs_to :role
   belongs_to :department
+  has_many :tasks
 
   has_many :event_attendences
   has_many :events, through: :event_attendences

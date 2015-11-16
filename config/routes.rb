@@ -9,8 +9,11 @@ Rails.application.routes.draw do
         put 'archive'
         put 'activate'
       end
+      resources :project_teams, only: :show do
+        resources :tasks, only: [:new, :create]
+      end
     end
-
+    
     resources :workshops
     resources :events do
       member do
@@ -24,7 +27,10 @@ Rails.application.routes.draw do
     end
 
     resource :dashboard, only: :show
-    resources :teams
+
+    resources :teams do
+      resources :annual_tasks, only: [:new, :create]
+    end
   end
 
 
@@ -32,9 +38,13 @@ Rails.application.routes.draw do
   resources :projects
   resources :teams
   resources :events
+<<<<<<< HEAD
   resources :events
+=======
+  resources :user_tasks, only: :create
+>>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit, :update] 
+  resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show
 
   resources :memberships do

@@ -9,4 +9,8 @@ class EventsController < ApplicationController
   	redirect_to event_path(@event)
   end
 
+  def can_join
+  	
+  end
+
 end
