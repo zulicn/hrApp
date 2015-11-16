@@ -38,11 +38,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :teams
   resources :events
-<<<<<<< HEAD
-  resources :events
-=======
   resources :user_tasks, only: :create
->>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show

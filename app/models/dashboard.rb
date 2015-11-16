@@ -1,31 +1,22 @@
 class Dashboard
-<<<<<<< HEAD
-  attr_accessor :notifications, :active_projects, :active_events
-=======
-  attr_accessor :notifications, :active_projects, :tasks, :applications
->>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
+
+  attr_accessor :notifications, :active_projects, :active_events, :tasks, :applications
 
   def initialize(user, filter)
     @user = user
     @filter = filter
     @notifications = []
     @active_projects = []
-<<<<<<< HEAD
     @active_events = []
-=======
     @tasks = []
->>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
   end
 
   def build
     build_notifications
     build_active_projects
-<<<<<<< HEAD
     build_active_events
-=======
     build_applications
     build_tasks
->>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
     self
   end
 
@@ -52,10 +43,11 @@ class Dashboard
     @active_projects = Project.where(is_active: true)
   end
 
-<<<<<<< HEAD
+
   def build_active_events
     @active_events = Event.where(is_active: true)
-=======
+  end
+
   def build_tasks
     @memberships = Membership.where(user: @user, project: Project.where(is_active: true))
     @memberships.each do |mem|
@@ -72,6 +64,5 @@ class Dashboard
 
   def build_applications
     @applications = UserTask.where(user: @user)
->>>>>>> 30bd1d9926283403ce8f3ce438c1cede3fc395e5
   end
 end
