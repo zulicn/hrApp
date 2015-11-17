@@ -22,6 +22,28 @@
   <%= f.label :note, 'Upute' %>
   <%= f.text_area :note, class: "form-control" %>
 </div>
+<% if @edit %>
+  <div class="form-group">
+    <%= f.label :report, 'Izvještaj' %>
+    <%= f.text_area :report, class: "form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.label :material, 'Link na materijale' %>
+    <%= f.url_field :material, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_active, 'Aktivan task' %>
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="form-group">
+    <p>Izaberite članove koji će raditi na ovom tasku</p>
+    <% @task.user_tasks.each do |user| %>
+      <%= check_box_tag 'user_tasks[]', user.id,user.accepted%> <%= User.find(user.user_id).firstname %>
+      <%= f.text_area :admin_report, class: "form-control"  %> 
+    <% end %>
+  </div>
+<% end %>
+
 <div class="form-group">
   <%= f.submit submit_label, class: "btn btn-success" %>
   <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>

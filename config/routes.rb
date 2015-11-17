@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         put 'activate'
       end
       resources :project_teams, only: :show do
-        resources :tasks, only: [:new, :create]
+        resources :tasks, only: [:new, :create,:update,:edit,:destroy]
       end
     end
     
