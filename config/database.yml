@@ -27,7 +27,7 @@ development:
 test:
   <<: *default
   adapter: postgresql
-  database: hrapp_dev
+  database: hrapp_test
   username: postgres
   password: postgres
   encoding: utf-8  
