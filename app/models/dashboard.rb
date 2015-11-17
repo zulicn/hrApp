@@ -29,14 +29,6 @@ class Dashboard
         link: "/memberships/new?project_id=#{project.id}"
       )
     end
-
-    events = Event.all
-    events.each do |event|
-      notifications << Notification.new(
-        message: "Kreiran je novi event #{event.name}, da li planirate prisustvovati",
-        link: "/events/#{event.id}"
-      )
-    end
   end
 
   def build_active_projects

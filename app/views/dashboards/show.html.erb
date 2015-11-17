@@ -49,7 +49,7 @@
         Nema aktuelnih događaja.
       <% else %>
         <% @dashboard.active_events.each do |event| %>
-          <p><%= event.name %>  Vrijeme: <%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %></p>
+          <p><%= event.name %> &nbsp <%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %> <%= link_to 'Pogledaj', event_path(event) %></p>
         <% end %>
       <% end %>
     </div>
