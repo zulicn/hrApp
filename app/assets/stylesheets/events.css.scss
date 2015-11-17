@@ -1,0 +1,13 @@
+@import 'variables';
+
+.event-active {
+  background-color: $green;
+
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #fff;
+  }
+}
+

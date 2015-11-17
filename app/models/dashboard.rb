@@ -1,17 +1,20 @@
 class Dashboard
-  attr_accessor :notifications, :active_projects, :tasks, :applications
+
+  attr_accessor :notifications, :active_projects, :active_events, :tasks, :applications
 
   def initialize(user, filter)
     @user = user
     @filter = filter
     @notifications = []
     @active_projects = []
+    @active_events = []
     @tasks = []
   end
 
   def build
     build_notifications
     build_active_projects
+    build_active_events
     build_applications
     build_tasks
     self
@@ -30,6 +33,11 @@ class Dashboard
 
   def build_active_projects
     @active_projects = Project.where(is_active: true)
+  end
+
+
+  def build_active_events
+    @active_events = Event.where(is_active: true)
   end
 
   def build_tasks

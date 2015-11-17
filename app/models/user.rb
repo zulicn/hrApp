@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   belongs_to :department
   has_many :tasks
 
+  has_many :event_attendences
+  has_many :events, through: :event_attendences
+
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   before_save   :downcase_email

@@ -1,0 +1,5 @@
+<div class="events-form">
+	<%= form_for @event, url: { action: "update" }, html: { name: 'form-center' } do |f| %>
+	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Promijeni" } %>
+	<% end %>
+</div>
