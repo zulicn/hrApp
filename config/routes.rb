@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :teams
   resources :events
-  resources :user_tasks, only: :create
+  resources :user_tasks, only: [:create, :destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show

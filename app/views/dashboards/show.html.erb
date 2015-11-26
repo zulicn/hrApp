@@ -33,7 +33,12 @@
                 Prijavi se
               </button>
             <% end %>
-            <%= task.name %> | <%= task.project_team.team.shortcode %>
+            <% if task_label(task, @dashboard.applications) == 'Prijavljen' %>
+                <button type="button" class="btn btn-warning btn-sm" onclick="javascript:showUserTaskModal('#showUserTask-modal', '<%= task.description %>', '<%= task.note %>', '<%= task.id %>');">
+                  Izmjena
+                </button>
+            <% end %>
+            <%= task.name %> | <%= task.project_team.team.shortcode  %>
           </li>
         <% end %>
         </ul>
@@ -87,6 +92,21 @@
         <%= form_tag('/user_tasks', method: :post) do %>
           <input type="hidden" id="task_id" name="task_id" />
           <%= submit_tag 'Prijavi se', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="showUserTask-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p id="userTaskDescription"></p>
+        <p id="userTaskNote"></p>
+        <%= form_tag('/user_tasks/', method: :delete) do %>
+            <input type="hidden" id="task_id" name="task_id" />
+            <%= submit_tag 'Odustani', class: 'btn btn-danger' %>
         <% end %>
       </div>
     </div>
