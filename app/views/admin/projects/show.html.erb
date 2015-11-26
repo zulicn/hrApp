@@ -16,17 +16,29 @@
 				      <%= project_team.team.shortcode %>
 				      <%= button_to 'Dodaj novi task', new_admin_project_project_team_task_path(@project, project_team), class: 'pull-right btn btn-default', :method => :get%>
 			      </div>
+			      
 			      <div class="panel-body">
+			
 			      <ul class="list-group">
+			            
 			        <% project_team.tasks.each do |task| %>
+			          
 				        <li class="list-group-item">
+				  				
+							     <span class='badge'><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, admin_project_project_team_task_path(@project, project_team,task), method: :delete, data: { confirm: "Jeste li sigurni?" } , class: 'white'%></span>
 							    <span class="badge"><%= task.user_tasks.count %> <span class="glyphicon glyphicon-user"></span></span>
+
 							    <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
-							    <%= task.name %>
-							 	</li>
+							    <%= link_to task.name, edit_admin_project_project_team_task_path(@project, project_team,task) %>
+						</li>
+							 	
 			        <% end %>
+
+
 			      </ul>
+			      			    
 			      </div>
+
 			  </div>
 			</div>
 			<% end %>
