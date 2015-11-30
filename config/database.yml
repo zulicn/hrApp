@@ -14,15 +14,25 @@ default: &default
 
 development: 
   <<: *default
+  adapter: postgresql
   database: hrapp_dev
+  username: postgres
+  password: postgres
+  encoding: utf-8  
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production
 test:
   <<: *default
+  adapter: postgresql
   database: hrapp_test
-
+  username: postgres
+  password: postgres
+  encoding: utf-8  
+  host: localhost
+  
 
 production:
   <<: *default    

@@ -1,0 +1,5 @@
+<div class="events-form">
+	<%= form_for Event.new, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
+	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Spasi" } %>
+	<% end %>
+</div>
