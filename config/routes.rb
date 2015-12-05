@@ -33,12 +33,10 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :projects
   resources :teams
   resources :events
-  resources :user_tasks, only: [:create, :destroy]
+  resources :user_tasks, only: [:create, :destroy, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show
