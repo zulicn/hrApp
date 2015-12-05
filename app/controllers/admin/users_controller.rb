@@ -16,10 +16,12 @@ module Admin
     def accept
       @user = User.find(params[:id])
       @user.is_accepted = true
-      @user.save!      
-      respond_to do |format|
-        format.html { redirect_to users_path }
-        format.js { }
+      if @user.save
+        EestecMailer.user_acceptance(@user.id).deliver      
+        respond_to do |format|
+          format.html { redirect_to users_path }
+          format.js { }
+        end
       end
     end
 

@@ -54,3 +54,5 @@ group :development, :test do
   gem 'tzinfo-data'
 end
 
+gem 'mandrill_mailer'
+

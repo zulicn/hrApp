@@ -12,6 +12,10 @@ module Admin
       @team = Team.find(params[:id])
     end
 
+    def show
+      @team = Team.find(params[:id])
+    end
+
     def create
       team = Team.create(team_params)
       team.save!

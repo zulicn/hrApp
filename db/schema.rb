@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108113750) do
+ActiveRecord::Schema.define(version: 20151116152441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "departments", force: :cascade do |t|
     t.string "name", null: false
+  end
+
+  create_table "event_attendences", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "event_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_types", force: :cascade do |t|
+    t.string "name",        null: false
+    t.text   "description"
   end
 
   create_table "events", force: :cascade do |t|
@@ -28,6 +40,9 @@ ActiveRecord::Schema.define(version: 20151108113750) do
     t.boolean  "is_chargeable"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_active",                default: true
+    t.boolean  "should_record_attendence", default: false
+    t.integer  "event_type_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -67,11 +82,37 @@ ActiveRecord::Schema.define(version: 20151108113750) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name",              null: false
+    t.text     "description",       null: false
+    t.integer  "num_of_members"
+    t.date     "deadline_to_apply"
+    t.date     "deadline"
+    t.text     "note"
+    t.text     "report"
+    t.integer  "creator_id",        null: false
+    t.integer  "project_team_id"
+    t.integer  "team_id"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "material"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "shortcode",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.text     "admin_report"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "accepted",     default: false
   end
 
   create_table "users", force: :cascade do |t|

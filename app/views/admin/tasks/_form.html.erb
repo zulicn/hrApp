@@ -1,0 +1,50 @@
+<div class="form-group">
+  <%= f.label :name, 'Naziv' %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :description, 'Opis' %>
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :num_of_members, 'Broj potrebnih clanova' %>
+  <%= f.number_field :num_of_members, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline_to_apply, 'Krajnji datum za prijave' %>
+  <%= f.date_field :deadline_to_apply, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :deadline, 'Krajnji datum za zavrsetak zadatka' %>
+  <%= f.date_field :deadline, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :note, 'Upute' %>
+  <%= f.text_area :note, class: "form-control" %>
+</div>
+<% if @edit %>
+  <div class="form-group">
+    <%= f.label :report, 'Izvještaj' %>
+    <%= f.text_area :report, class: "form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.label :material, 'Link na materijale' %>
+    <%= f.url_field :material, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_active, 'Aktivan task' %>
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="form-group">
+    <p>Izaberite članove koji će raditi na ovom tasku</p>
+    <% @task.user_tasks.each do |user| %>
+      <%= check_box_tag 'user_tasks[]', user.id,user.accepted%> <%= User.find(user.user_id).firstname %>
+      <%= f.text_area :admin_report, class: "form-control"  %> 
+    <% end %>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= f.submit submit_label, class: "btn btn-success" %>
+  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+</div>

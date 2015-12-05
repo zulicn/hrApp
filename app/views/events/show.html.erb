@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-lg-6 col-lg-offset-3">
+		<div class="panel panel-default show-panel">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading"> <%= @event.name %></div>
+		  <div class="panel-body">
+		    <p><%= @event.description %></p>
+		    <br>
+		    <p><strong>Početak:</strong> <%= @event.start_date.strftime("%d.%m.%Y.  %H:%M") %></p>
+		    <p><strong>Kraj:</strong> <%= @event.end_date.strftime("%d.%m.%Y.  %H:%M") %></p>
+		    <p><strong>Ulaz:</strong> <%= event_chargeable(@event) %></p>
+		    <p><strong>Evidentiranje prisustva:</strong> <%= event_attendence(@event) %></p>
+		    <br>
+		    <p><strong>Članovi koji dolaze: </strong>
+			    <% @event.users.each do |user| %>
+			    	<%= user.fullname %>&nbsp
+			    <% end %>
+		    </p>
+		    <% unless @event.joined?(@current_user) %>
+		    	<p class="btn-join">
+		    		<%= link_to 'Pridruzi se', join_event_path(@event), class: 'btn btn-success', method: :post %>
+		    	</p>
+		    <% end %>
+		  </div>
+
+		</div>
+	</div>
+</div>
