@@ -1,0 +1,41 @@
+<div class="form-group">
+  <%= f.label :name, 'Ime' %>
+  <%= f.text_field :name, class: "form-control", required: true  %>
+</div>
+<div class="form-group">
+  <%= f.label :description, 'Opis' %>
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :name, 'Početak' %>
+  <%= f.datetime_local_field :start_date, class: "form-control", required: true %>
+</div>
+<div class="form-group">
+  <%= f.label :name, 'Kraj' %>
+  <%= f.datetime_local_field :end_date, class: "form-control", required: true  %>
+</div>
+<div class="form-group">
+  <%= f.label :event_type_id, 'Tip' %>
+  <%= f.collection_select :event_type_id, EventType.order(:name), :id, :name, {}, {:class => 'form-control'} %>
+</div>
+<div class="form-group">
+  <%= f.label :is_chargeable, 'Naplacivanje ulaza' %> &nbsp
+  <%= f.radio_button :is_chargeable, true, :checked => @event.is_chargeable == true %> Da
+  <%= f.radio_button :is_chargeable, false, :checked => @event.is_chargeable == false || @event.new_record? %> Ne
+</div>
+<div class="form-group">
+  <%= f.label :should_record_attendence, 'Evidencija prisustva' %> &nbsp
+  <%= f.radio_button :should_record_attendence, true, :checked => @event.should_record_attendence == true  %> Da
+  <%= f.radio_button :should_record_attendence, false,  :checked => @event.should_record_attendence == false || @event.new_record? %> Ne
+</div>
+<% if @event.new_record? %>
+  <div class="form-group">
+    <%= f.label :name, 'Poslati mail svim clanovima?' %> &nbsp
+    <%= radio_button_tag :should_send_email, true %> Da
+    <%= radio_button_tag :should_send_email, false, :checked => true %> Ne
+  </div>
+<% end %>
+<div class="form-group">
+  <%= f.submit submit_label, class: "btn btn-success" %>
+  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+</div>

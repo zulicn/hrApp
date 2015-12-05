@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     end
     
     resources :workshops
-
+    resources :events do
+      member do
+        put 'archive'
+        put 'activate'
+      end
+    end
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member
@@ -28,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+
   resources :projects
   resources :teams
   resources :events
@@ -38,6 +45,10 @@ Rails.application.routes.draw do
 
   resources :memberships do
     post :reject, on: :collection
+  end
+
+  resources :events, only: [:show] do
+    post :join, on: :member
   end
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
