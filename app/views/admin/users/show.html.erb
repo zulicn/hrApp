@@ -1,4 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div class="container users-container">
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', admin_users_path %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Osnovne informacije</div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr><td>Ime:</td><td><%= @user.fullname %></td></tr>
+            <tr><td>Email:</td><td><%= @user.email %></td></tr>
+            <tr><td>Phone:</td><td><%= @user.phone %></td></tr>
+            <tr><td>Odsjek:</td><td><%= @user.department.name %></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Taskovi</div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <% @details.tasks.each do |team, tasks| %>
+              <% next if tasks.empty? %>
+              <h3 class="title"><%= team %></h3>
+              <table class="table">
+                <% tasks.each do |task| %>
+                  <tr <% if task.late? %>class="red-bg"<% end %>>
+                    <td><%= task.name %></td>
+                    <td>
+                      <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
+                      <% if task.late? %>Kasni<% end %>
+                    </td>
+                    <td><%= task.deadline %></td>
+                  </tr>
+                <% end %>
+              </table>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Timovi u koje je uključen</div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <% @details.teams_per_project.each do |t| %>
+              <tr>
+                <td><%= t[:project] %></td>
+                <td><%= t[:teams] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

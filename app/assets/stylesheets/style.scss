@@ -93,7 +93,7 @@ body {
     	padding: 8px 10px 5px;
 	  	color: $red;
 	  	border-color: $red;
-	  	
+
   }
 }
 
@@ -326,7 +326,7 @@ form[name=form-centerrp] label {
   p.btn-join {
   	text-align: center;
   	padding-top: 10px;
-  	
+
   }
 }
 
@@ -388,4 +388,14 @@ form[name=form-centerrp] label {
 	height: 550px !important;
 }
 
+.badge.Active {
+  background: $green;
+}
+.badge.Finished {
+  background: $red;
+}
 
+.red-bg {
+  background-color: $red;
+  color: white;
+}
