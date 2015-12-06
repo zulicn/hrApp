@@ -5,7 +5,7 @@ module Admin
   	def charge_fee
   	  event_attendence = EventAttendence.find(params[:event_attendence_id])
       event_attendence.update_attribute(:is_charge_paid, true)
-  	  redirect_to admin_event_charges_logs_path(event_attendence.event)
+  		redirect_to admin_event_charges_logs_path(event_attendence.event)
   	end
 
   	def commit_attendence
