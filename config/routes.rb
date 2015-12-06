@@ -27,8 +27,10 @@ Rails.application.routes.draw do
     resources :event_attendences do
       put 'charge_fee'
       put 'commit_attendence'
+      put 'charge_undo'
+      put 'undo_attendence'
     end
-    
+
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member

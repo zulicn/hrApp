@@ -1,7 +1,8 @@
 <% @event_attendences.each do |e|%>
   <%= e.user.fullname %>
   <% if e.is_attended %>
-  	Prisustvovao/la
+  	Prisustvovao/la -
+  	<%= link_to 'Ponisti', admin_event_attendence_undo_attendence_path(e), method: :put %>
   <% else %>
     <%= link_to 'Evidentiraj prisutvo', admin_event_attendence_commit_attendence_path(e), method: :put %>
   <% end %>
