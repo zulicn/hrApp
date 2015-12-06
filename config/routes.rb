@@ -20,7 +20,15 @@ Rails.application.routes.draw do
         put 'archive'
         put 'activate'
       end
+      get 'attendence_logs'
+      get 'charges_logs'
     end
+
+    resources :event_attendences do
+      put 'charge_fee'
+      put 'commit_attendence'
+    end
+    
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member
@@ -50,6 +58,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show] do
     post :join, on: :member
   end
+
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

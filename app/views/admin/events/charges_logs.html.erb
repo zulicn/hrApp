@@ -1,0 +1,9 @@
+<% @event_charges.each do |e|%>
+  <%= e.user.fullname %>
+  <% if e.is_charge_paid %>
+  	Evidentirana uplata
+  <% else %>
+    <%= link_to 'Evidentiraj uplatu', admin_event_attendence_charge_fee_path(e), method: :put %>
+  <% end %>
+  <br>
+ <% end %>
