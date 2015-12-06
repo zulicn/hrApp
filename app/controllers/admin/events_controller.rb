@@ -50,6 +50,14 @@ module Admin
       redirect_to admin_events_path
     end
 
+    def attendence_logs
+      @event_attendences = Event.find(params[:event_id]).event_attendences
+    end
+
+    def charges_logs
+      @event_charges = Event.find(params[:event_id]).event_attendences
+    end
+
 
     def event_params
       params.require(:event).permit(:name, :description, :start_date, :end_date, :event_type_id, :is_chargeable, :should_record_attendence)
