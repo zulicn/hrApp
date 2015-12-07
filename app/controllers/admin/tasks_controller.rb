@@ -56,7 +56,7 @@ module Admin
     private
 
     def task_params
-      params.require(:task).permit(:name, :description, :num_of_members, :deadline_to_apply, :deadline, :note,:report,:material,:is_active, :admin_report)
+      params.require(:task).permit(:name, :description, :num_of_members, :deadline_to_apply, :deadline, :note,:report,:material,:is_active)
     end
 
 def set_task
