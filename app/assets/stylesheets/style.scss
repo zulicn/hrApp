@@ -93,7 +93,7 @@ body {
     	padding: 8px 10px 5px;
 	  	color: $red;
 	  	border-color: $red;
-	  	
+
   }
 }
 
@@ -243,7 +243,7 @@ form[name=form-center] label {
 form[name=form-centerrp] label {
 	color:#62B948;
 }
-.pacific-blue > a, .pacific-blue > a:hover, {
+.pacific-blue > a, .pacific-blue > a:hover {
 		color: $pacific-blue !important;
 	}
 
@@ -326,7 +326,7 @@ form[name=form-centerrp] label {
   p.btn-join {
   	text-align: center;
   	padding-top: 10px;
-  	
+
   }
 }
 
@@ -388,4 +388,25 @@ form[name=form-centerrp] label {
 	height: 550px !important;
 }
 
+.badge.Active {
+  background: $green;
+}
+.badge.Finished {
+  background: $red;
+}
 
+.left-button {
+  float: left;
+  margin-right: 5px;
+}
+
+.user-task-label {
+  color: #000000;
+  font-weight: bold;
+  display: inline;
+}
+
+.red-bg {
+  background-color: $red;
+  color: white;
+}
