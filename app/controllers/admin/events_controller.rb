@@ -60,7 +60,7 @@ module Admin
 
 
     def event_params
-      params.require(:event).permit(:name, :description, :start_date, :end_date, :event_type_id, :is_chargeable, :should_record_attendence)
+      params.require(:event).permit(:name, :description, :start_date, :end_date, :event_type_id, :is_chargeable, :should_record_attendence, :cover_url)
     end
 
     def check_submit

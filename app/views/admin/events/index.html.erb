@@ -21,10 +21,10 @@
           <% @events.each do |event| %>
             <tr class="event-active">
               <td><%= event.name %></td>
-              <td><small><%= event.description %></small></td>
+              <td width="500px"><small><%= event.description %></small></td>
               <td><%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %></td>
               <td><%= event.end_date.strftime("%d.%m.%Y.  %H:%M") %></td>
-              <td>
+              <td width="400px">
                 <%= link_to 'Promijeni', edit_admin_event_path(event) %> |
                 <% if event.is_active %>
                   <%= link_to 'Arhiviraj', archive_admin_event_path(event), method: :put %> |
