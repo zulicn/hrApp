@@ -39,7 +39,11 @@
     <p>Izaberite članove koji će raditi na ovom tasku</p>
     <% @task.user_tasks.each do |user| %>
       <%= check_box_tag 'user_tasks[]', user.id,user.accepted%> <%= User.find(user.user_id).firstname %>
-      <%= f.text_area :admin_report, class: "form-control"  %> 
+      <% if user.admin_report %>
+      <%= text_area 'admin_report', 'izvjestaj', :value => user.admin_report[15..user.admin_report.length-3], class: "form-control"  %> 
+      <% else %>
+        <%= text_area 'admin_report', 'izvjestaj', class: "form-control"  %>
+      <%end %>
     <% end %>
   </div>
 <% end %>
