@@ -21,8 +21,8 @@ class UserTasksController < ApplicationController
   end
 
   def destroy
-    userTask = UserTask.where( 'user_id = ? AND task_id = ?', @current_user.id, params[:id]).take
-    userTask.destroy!
+    user_task = UserTask.where( 'user_id = ? AND task_id = ?', @current_user.id, params[:id]).take
+    user_task.destroy!
     redirect_to dashboard_path
   end
 
