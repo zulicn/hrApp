@@ -1,10 +1,22 @@
-<% @event_attendences.each do |e|%>
-  <%= e.user.fullname %>
-  <% if e.is_attended %>
-  	Prisustvovao/la -
-  	<%= link_to 'Ponisti', admin_event_attendence_undo_attendence_path(e), method: :put %>
-  <% else %>
-    <%= link_to 'Evidentiraj prisutvo', admin_event_attendence_commit_attendence_path(e), method: :put %>
+Evidencija prisustva
+<table class="table">
+  <thead>
+    <th>Ime i prezime</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+  <% @event_attendences.each do |e| %>
+    <tr class="event-active">
+      <td><%= e.user.fullname %></td>
+      <td width="400px">
+        <% if e.is_attended %>
+          Prisustvovao/la -
+          <%= link_to 'Ponisti', admin_event_attendence_undo_attendence_path(e), method: :put %>
+        <% else %>
+          <%= link_to 'Evidentiraj prisutvo', admin_event_attendence_commit_attendence_path(e), method: :put %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
-  <br>
-<% end %>
+  </tbody>
+</table>
