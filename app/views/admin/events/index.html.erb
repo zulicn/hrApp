@@ -31,6 +31,12 @@
                 <% else %>
                   <%= link_to 'Aktiviraj', activate_admin_event_path(event), method: :put %> |
                 <% end %>
+                <% if event.is_chargeable %>
+                  <%= link_to 'Evidentiraj uplate', admin_event_charges_logs_path(event) %> |
+                <% end %>
+                <% if event.should_record_attendence %>
+                  <%= link_to 'Evidentiraj prisustvo', admin_event_attendence_logs_path(event) %> |
+                <% end %>
                 <%= link_to 'Izbriši', admin_event_path(event), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
               </td>
             </tr>

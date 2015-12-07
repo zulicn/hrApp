@@ -20,7 +20,17 @@ Rails.application.routes.draw do
         put 'archive'
         put 'activate'
       end
+      get 'attendence_logs'
+      get 'charges_logs'
     end
+
+    resources :event_attendences do
+      put 'charge_fee'
+      put 'commit_attendence'
+      put 'charge_undo'
+      put 'undo_attendence'
+    end
+
     resources :users, only: [:index, :show] do
       post 'accept', on: :member
       post 'promote', on: :member
@@ -33,12 +43,10 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :projects
   resources :teams
   resources :events
-  resources :user_tasks, only: :create
+  resources :user_tasks, only: [:create, :destroy, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show
@@ -50,6 +58,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show] do
     post :join, on: :member
   end
+
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

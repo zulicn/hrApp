@@ -243,7 +243,7 @@ form[name=form-center] label {
 form[name=form-centerrp] label {
 	color:#62B948;
 }
-.pacific-blue > a, .pacific-blue > a:hover, {
+.pacific-blue > a, .pacific-blue > a:hover {
 		color: $pacific-blue !important;
 	}
 
@@ -393,6 +393,17 @@ form[name=form-centerrp] label {
 }
 .badge.Finished {
   background: $red;
+}
+
+.left-button {
+  float: left;
+  margin-right: 5px;
+}
+
+.user-task-label {
+  color: #000000;
+  font-weight: bold;
+  display: inline;
 }
 
 .red-bg {
