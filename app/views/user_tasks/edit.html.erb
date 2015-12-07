@@ -1,0 +1,5 @@
+<div class="projects-form">
+	<%= form_for @user_task, url: { action: "update" }, html: { name: 'form-center' } do |f| %>
+	  <%= render partial: 'form', :locals => { :f => f} %>
+	<% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="form-group">
+  <p class="user-task-label">Naziv taska: </p>
+  <%= f.label @task.name %>
+</div>
+<div class="form-group">
+  <p class="user-task-label">Opis taska: </p>
+  <%= f.label @task.description %>
+</div>
+<div class="form-group">
+  <p class="user-task-label">Deadline: </p>
+  <%= f.label @task.deadline %>
+</div>
+
+<div class="form-group">
+  <p class="user-task-label">Komentar organizatora: </p>
+  <p><%= f.text_area :admin_report, class: "form-control", readonly: true %></p>
+</div>
+<div class="form-group">
+  <p class="user-task-label">Izvještaj o tasku: </p>
+  <%= f.text_area :user_report, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.submit 'Spasi promjene', class: 'btn btn-success' %>
+</div>
