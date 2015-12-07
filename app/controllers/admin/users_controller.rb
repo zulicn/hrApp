@@ -17,7 +17,7 @@ module Admin
       @user = User.find(params[:id])
       @user.is_accepted = true
       if @user.save
-        EestecMailer.user_acceptance(@user.id).deliver      
+        EestecMailer.user_acceptance(@user.id).deliver
         respond_to do |format|
           format.html { redirect_to users_path }
           format.js { }
@@ -38,7 +38,7 @@ module Admin
 
     def show
       @user = User.find(params[:id])
+      @details = UserInfo.new(@user).build
     end
-
   end
 end
