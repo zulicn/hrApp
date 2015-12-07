@@ -18,7 +18,7 @@ module Admin
     def create
       event = Event.create(event_params)
       event.save!
-      if params[:should_send_email]
+      if params[:should_send_email] === "true"
         see_event_url = event_url(event)
         EestecMailer.new_event(event.id, see_event_url).deliver
       end
@@ -48,6 +48,14 @@ module Admin
       event = Event.find(params[:id])
       event.update!(is_active: true)
       redirect_to admin_events_path
+    end
+
+    def attendence_logs
+      @event_attendences = Event.find(params[:event_id]).event_attendences
+    end
+
+    def charges_logs
+      @event_charges = Event.find(params[:event_id]).event_attendences
     end
 
 
