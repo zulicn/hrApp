@@ -6,9 +6,13 @@ module Admin
     end
 
     def create
-      annual_task = Task.create(annual_task_params.merge(:creator_id => @current_user.id, :is_active => true, :team_id => params[:team_id]))
-      annual_task.save!
-      redirect_to admin_teams_path
+      @team = Team.find(params[:team_id])
+      @annual_task = Task.create(annual_task_params.merge(:creator_id => @current_user.id, :is_active => true, :team_id => params[:team_id]))
+      if @annual_task.save
+        redirect_to admin_teams_path
+      else
+        render 'new'
+      end
     end
 
     private
