@@ -13,7 +13,7 @@ class Task < ActiveRecord::Base
 
   def start_date_before_end_date
     if deadline_to_apply > deadline
-      errors.add(:deadline_to_apply, "Krajnji datum za prijave treba biti prije krajnjeg datuma za završetak zadatka")
+      errors.add(:datum, "Krajnji datum za prijave treba biti prije krajnjeg datuma za završetak zadatka")
   	end
   end
 end

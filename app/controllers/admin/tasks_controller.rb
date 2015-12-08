@@ -7,10 +7,10 @@ module Admin
     end
 
     def create
-      @task = Task.new()
       @project_team = ProjectTeam.find(params[:project_team_id])
-      task = Task.create(task_params.merge(:creator_id => @current_user.id, :is_active => true, :project_team_id => params[:project_team_id]))
-      if task.save
+      @task = Task.create(task_params.merge(:creator_id => @current_user.id, :is_active => true, :project_team_id => params[:project_team_id]))
+      admin_project_path(params[:project_id])
+      if @task.save
         redirect_to admin_project_path(params[:project_id])
       else
         render 'new'
