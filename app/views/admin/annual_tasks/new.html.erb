@@ -1,6 +1,15 @@
 <span class="title"><span class="glyphicon glyphicon-hand-right"></span> <%= @team.shortcode %> - Kreiranje novog taska</span>
 <div class="projects-form">
 	<%= form_for @annual_task, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
-	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Dodaj" } %>
+	    <% if @annual_task.errors.any? %>
+		      <h2>Greške:</h2>
+
+		      <ul>
+			      <% @annual_task.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+		      </ul>
+		<% end %>
+	  	<%= render partial: 'form', :locals => { :f => f, :submit_label => "Dodaj" } %>
 	<% end %>
 </div>
