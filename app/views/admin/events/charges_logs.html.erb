@@ -1,10 +1,22 @@
-<% @event_charges.each do |e|%>
-  <%= e.user.fullname %>
-  <% if e.is_charge_paid %>
-  	Evidentirana uplata - 
-  	<%= link_to 'Ponisti', admin_event_attendence_charge_undo_path(e), method: :put %>
-  <% else %>
-    <%= link_to 'Evidentiraj uplatu', admin_event_attendence_charge_fee_path(e), method: :put %>
+Evidencija uplata
+<table class="table">
+  <thead>
+    <th>Ime i prezime</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+  <% @event_charges.each do |e| %>
+    <tr class="event-active">
+      <td><%= e.user.fullname %></td>
+      <td width="400px">
+          <% if e.is_charge_paid %>
+            Evidentirana uplata -
+            <%= link_to 'Ponisti', admin_event_attendence_charge_undo_path(e), method: :put %>
+          <% else %>
+            <%= link_to 'Evidentiraj uplatu', admin_event_attendence_charge_fee_path(e), method: :put %>
+          <% end %>
+      </td>
+    </tr>
   <% end %>
-  <br>
- <% end %>
+  </tbody>
+</table>
