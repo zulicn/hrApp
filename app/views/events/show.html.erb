@@ -4,6 +4,9 @@
 		  <!-- Default panel contents -->
 		  <div class="panel-heading"> <%= @event.name %></div>
 		  <div class="panel-body">
+		  	<% unless @event.cover_url.blank? %>
+		  		<div class="cover"><img src="<%= @event.cover_url %>" alt="Cover" class="event-cover"></div>
+		  	<% end %>
 		    <p><%= @event.description %></p>
 		    <br>
 		    <p><strong>Početak:</strong> <%= @event.start_date.strftime("%d.%m.%Y.  %H:%M") %></p>

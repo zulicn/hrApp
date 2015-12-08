@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206184802) do
+ActiveRecord::Schema.define(version: 20151207153107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151206184802) do
     t.boolean  "is_active",                default: true
     t.boolean  "should_record_attendence", default: false
     t.integer  "event_type_id"
+    t.string   "cover_url"
   end
 
   create_table "guests", force: :cascade do |t|
