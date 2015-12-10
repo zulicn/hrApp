@@ -5,6 +5,11 @@ class Task < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
 
   has_many :user_tasks
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :num_of_members, presence: true
+  validates :deadline_to_apply, presence: true
+  validates :deadline, presence: true
   validate :start_date_before_end_date
 
   def late?

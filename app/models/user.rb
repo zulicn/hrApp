@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+  validate :birth_date_not_in_future
   before_save   :downcase_email
 
 
@@ -72,4 +73,9 @@ class User < ActiveRecord::Base
     def downcase_email
       self.email = email.downcase
     end
+
+    def birth_date_not_in_future
+    errors.add(:Rodjenje, "Datum rodjenja ne moze biti u buducnosti") if
+      !birth_date.blank? and birth_date > Date.today
+  end
 end

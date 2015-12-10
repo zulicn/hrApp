@@ -10,9 +10,12 @@ module Admin
 
     def create
       params[:teams] ||= []
-      workshop = Workshop.create(workshops_params)
-      workshop.save!
-      redirect_to admin_workshops_path
+      @workshop = Workshop.create(workshops_params)
+      if @workshop.save
+        redirect_to admin_workshops_path
+      else
+        render 'new'
+      end
     end
 
     def edit
@@ -20,10 +23,13 @@ module Admin
     end
 
     def update
-      workshop = Workshop.find(params[:id])
-      workshop.update(workshops_params)
-      workshop.save!
-      redirect_to admin_workshops_path
+      @workshop = Workshop.find(params[:id])
+      @workshop.update(workshops_params)
+      if @workshop.save
+        redirect_to admin_workshops_path
+      else 
+        render 'edit'
+      end
     end
 
     def destroy

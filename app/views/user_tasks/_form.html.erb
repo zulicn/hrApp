@@ -10,7 +10,7 @@
   <p class="user-task-label">Deadline: </p>
   <%= f.label @task.deadline %>
 </div>
-<% unless @task.material.nil?%>
+<% unless @task.material.nil? || @task.material==''%>
   <div class="form-group">
     <p class="user-task-label">Materijali: </p>
     <%= f.label @task.material %>

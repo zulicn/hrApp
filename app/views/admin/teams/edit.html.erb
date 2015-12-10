@@ -1,5 +1,14 @@
 <div class="teams-form">
 	<%= form_for @team, url: { action: "update" }, html: { name: 'form-center' } do |f| %>
+		<% if @team.errors.any? %>
+	      <h2>Greške:</h2>
+
+	      <ul>
+		      <% @team.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+	      </ul>
+	  <% end %>
 	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Promijeni" } %>
 	<% end %>
 </div>

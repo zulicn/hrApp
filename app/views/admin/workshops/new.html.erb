@@ -1,5 +1,14 @@
 <div class="projects-form">
 	<%= form_for @workshop, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
-	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Spasi" } %>
+		<% if @workshop.errors.any? %>
+	      <h2>Greške:</h2>
+
+	      <ul>
+		      <% @workshop.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+	      </ul>
+	  	<% end %>
+	  	<%= render partial: 'form', :locals => { :f => f, :submit_label => "Spasi" } %>
 	<% end %>
 </div>
