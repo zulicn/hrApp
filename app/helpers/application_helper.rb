@@ -11,9 +11,10 @@ module ApplicationHelper
   end
 
   def task_label(task, applications)
-    unless UserTask.where(id: task.id).empty?
-      return 'Odobren' if  UserTask.find(task.id).user_id == current_user.id && UserTask.find(task.id).accepted
-      return 'Odbijen' if UserTask.find(task.id).user_id == current_user.id && !UserTask.find(task.id).accepted
+    unless UserTask.where(task_id: task.id).empty?
+      return 'Zavrsen' if !task.is_active
+      return 'Odobren' if  UserTask.find_by(task_id: task.id).user_id == @current_user.id && UserTask.find_by(task_id: task.id).accepted
+      return 'Odbijen' if UserTask.find_by(task_id: task.id).user_id == @current_user.id && !UserTask.find_by(task_id: task.id).accepted
     end
     return 'Prijavljen' if applications.map(&:task_id).include?(task.id)
     'Otvoren'
