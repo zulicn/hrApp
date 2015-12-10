@@ -14,6 +14,17 @@ class EestecMailer < MandrillMailer::TemplateMailer
     )
   end
 
+  def new_user (user_firstname)
+    mandrill_mail(
+      template: 'Novi user',
+      to: "board@eestec-sa.ba", 
+      subject: "Novi clan je prijavljen",
+      vars: {
+        'USER_NAME' => user_firstname,
+      }
+      )
+  end
+
   def new_event(event_id, see_event_url)
     @event = Event.find(event_id)
     recipients = User.all.map(&:email)
