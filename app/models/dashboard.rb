@@ -45,7 +45,7 @@ class Dashboard
     @memberships.each do |mem|
       pt = ProjectTeam.where(project_id: mem.project_id, team_id: mem.team_id)
       Task.where(project_team_id: pt.map(&:id)).each do |task|
-        next if task.deadline_to_apply < Time.now
+        next if task.deadline_to_apply_over?
         next if @filter[:tasks] == 'my_tasks' && !@applications.map(&:task_id).include?(task.id)
         next if @filter[:tasks] == 'open_tasks' && @applications.map(&:task_id).include?(task.id)
         next if task.user_tasks.count > task.num_of_members
