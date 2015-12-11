@@ -1,5 +1,14 @@
 <div class="events-form">
 	<%= form_for @event, url: { action: "update" }, html: { name: 'form-center' } do |f| %>
+	<% if @event.errors.any? %>
+	      <h2>Greške:</h2>
+
+	      <ul>
+		      <% @event.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+	      </ul>
+	  <% end %>
 	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Promijeni" } %>
 	<% end %>
 </div>

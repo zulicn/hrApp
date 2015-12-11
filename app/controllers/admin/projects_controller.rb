@@ -17,11 +17,15 @@ module Admin
     end
 
     def create
+      @teams = Team.where.not(shortcode: 'NOTEAM')
       params[:teams] ||= []
-      project = Project.create(project_params)
-      project.teams = Team.where(id: params[:teams])
-      project.save!
-      redirect_to admin_projects_path
+      @project = Project.create(project_params)
+      @project.teams = Team.where(id: params[:teams])
+      if @project.save
+        redirect_to admin_projects_path
+      else
+        render 'new'
+      end
     end
 
     def show
@@ -29,12 +33,16 @@ module Admin
     end
 
     def update
+      @teams = Team.where.not(shortcode: 'NOTEAM')
       params[:teams] ||= []
-      project = Project.find(params[:id])
-      project.update(project_params)
-      project.teams = Team.where(id: params[:teams])
-      project.save!
-      redirect_to admin_projects_path
+      @project = Project.find(params[:id])
+      @project.update(project_params)
+      @project.teams = Team.where(id: params[:teams])
+      if @project.save
+        redirect_to admin_projects_path
+      else
+        render 'edit'
+      end
     end
 
     def archive

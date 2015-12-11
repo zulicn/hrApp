@@ -36,8 +36,11 @@
             <% else %>
 
                 <%= button_to 'Odustani', user_task_path(task), method: :delete, class: 'btn btn-warning btn-sm left-button' %>
-
-                <%= link_to task.name, edit_user_task_path(task), title: 'Uredi task', rel: 'tooltip' %>
+                <% if task_label(task, @dashboard.applications) == 'Odobren' %>
+                  <%= link_to task.name, edit_user_task_path(task), title: 'Uredi task', rel: 'tooltip' %>
+                <% else %>
+                  <%= task.name %> | <%= task.project_team.team.shortcode  %>
+                <% end %>
                 <div style="clear:both;"></div>
             <% end %>
           </li>

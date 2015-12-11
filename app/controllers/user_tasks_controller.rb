@@ -17,6 +17,10 @@ class UserTasksController < ApplicationController
     @user_task = UserTask.where( 'user_id = ? AND task_id = ?', @current_user.id, params[:id]).take
     @user_task.update(task_params)
     @user_task.save!
+    find_task = Task.find(@user_task.task_id);
+    find_task.is_active = params[:task_id];
+    find_task.material = params[:material];
+    find_task.save!
     redirect_to dashboard_path
   end
 
@@ -27,6 +31,6 @@ class UserTasksController < ApplicationController
   end
 
   def task_params
-    params.require(:user_task).permit(:user_id, :task_id, :admin_report, :user_report)
+    params.require(:user_task).permit(:user_id, :task_id, :material, :user_report, :is_active)
   end
 end
