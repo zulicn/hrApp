@@ -54,12 +54,15 @@
     <div class="panel-heading pacific-heading">
       <span class="glyphicon glyphicon-calendar"></span> Aktuelni događaji</div>
     <div class="panel-body">
+      <%= link_to '-> Moji događaji', events_path, title: 'Pogledaj moje događaje', rel: 'tooltip', class: 'all-user-events-link' %>
+
       <% if @dashboard.active_events.empty? %>
-        Nema aktuelnih događaja.
+          Nema aktuelnih događaja.
       <% else %>
-        <% @dashboard.active_events.each do |event| %>
-          <p><%= event.name %> &nbsp <%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %> <%= link_to 'Pogledaj', event_path(event) %></p>
-        <% end %>
+          <% @dashboard.active_events.each do |event| %>
+              <p><%= event.name %>
+                &nbsp <%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %> <%= link_to 'Pogledaj', event_path(event) %></p>
+          <% end %>
       <% end %>
     </div>
   </div>
