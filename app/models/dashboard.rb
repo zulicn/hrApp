@@ -37,7 +37,9 @@ class Dashboard
 
 
   def build_active_events
-    @active_events = Event.where(is_active: true)
+    @active_events = Event.where(is_active: true).
+                           where('start_date > ?', DateTime.now.to_date).
+                           order('start_date ASC, created_at ASC')
   end
 
   def build_tasks

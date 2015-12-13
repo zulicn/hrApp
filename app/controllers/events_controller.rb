@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+
+  def index
+    @user_events = Event.joins(:event_attendences).where(event_attendences: { user_id: current_user.id })
+  end
+
   def show
     @event = Event.find(params[:id])
   end

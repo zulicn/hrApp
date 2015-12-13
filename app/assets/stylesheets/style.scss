@@ -418,3 +418,17 @@ form[name=form-centerrp] label {
 	height: 200px;
 	text-align: center;
 }
+
+.all-user-events-link {
+  color: #00B0BD;
+  font-size: larger;
+  font-style: italic;
+}
+
+.user-subscribed-to-event {
+  color: #62B948;
+}
+
+.user-not-subscribed-to-event {
+  color: #B00100;
+}

@@ -1,0 +1,31 @@
+<div class="panel-body">
+  <% if @user_events.empty? %>
+      <p><strong>Niste prisustvovali nijednom eventu do sada.</strong></p>
+  <% else %>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+          <th>Naziv eventa</th>
+          <th>Opis eventa</th>
+          <th>Početak eventa</th>
+          <th>Kraj eventa</th>
+          <th>Evidencija prisustva</th>
+          <th>Troškovi</th>
+          </thead>
+          <tbody>
+          <% @user_events.each do |user_event| %>
+              <tr>
+                <td><%= link_to user_event.name, event_path(user_event), title: 'Pogledaj event', rel: 'tooltip' %></td>
+                <td><%= user_event.description %></td>
+                <td><%= user_event.start_date.strftime("%d.%m.%Y.  %H:%M") %></td>
+                <td><%= user_event.end_date.strftime("%d.%m.%Y.  %H:%M") %></td>
+                <td><%= event_attendence(user_event) %></td>
+                <td><%= event_chargeable(user_event) %></td>
+
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+  <% end %>
+</div>
