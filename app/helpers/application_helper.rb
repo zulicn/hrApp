@@ -30,4 +30,11 @@ module ApplicationHelper
     "Besplatan"
   end
 
+  def user_subscribed_to_event_class(event)
+    unless EventAttendence.where('event_id = ? AND user_id = ?', event.id, @current_user.id).take.nil?
+      return 'user-subscribed-to-event'
+    end
+    return 'user-not-subscribed-to-event'
+  end
+
 end
