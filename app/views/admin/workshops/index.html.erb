@@ -25,8 +25,9 @@
               <td><%= workshop.start_date %></td>
               <td><%= workshop.end_date %></td>
               <td>
+                <%= button_to 'Vidi opis u modalu', admin_workshop_path(workshop), class: 'pull-right btn btn-default', :method => :get%>
                 <%= link_to 'Promijeni', edit_admin_workshop_path(workshop) %> |
-                <%= link_to 'Izbriši', admin_workshop_path(workshop), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
+                <%= link_to 'Izbriši', admin_workshop_path(workshop), method: :delete, data: { confirm: "Jeste li sigurni?" } %> 
               </td>
             </tr>
           <% end %>
