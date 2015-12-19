@@ -1,0 +1,23 @@
+<div class="workshop-description">
+  <div class="form-group">
+    <p class="user-task-label">Naziv radionice: </p>
+    <%= @workshop.name %>
+  </div>
+  <div class="form-group">
+    <p class="user-task-label">Opis radionice: </p>
+    <%= @workshop.description %>
+  </div>
+  <div class="form-group">
+    <p class="user-task-label">Početak: </p>
+    <%= @workshop.start_date %>
+  </div>
+  <div class="form-group">
+    <p class="user-task-label">Kraj: </p>
+    <%= @workshop.end_date %>
+  </div>
+  <div class="form-group">
+    <p class="user-task-label">Članovi koji su posjetili radionicu: </p>
+  </div>
+  <%= link_to 'Nazad', admin_workshops_path, class: 'btn btn-default' %>
+</div>
+

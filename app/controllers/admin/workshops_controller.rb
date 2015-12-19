@@ -1,5 +1,9 @@
 module Admin
   class WorkshopsController < AdminController
+    def show
+      @workshop = Workshop.find(params[:id])
+    end
+
     def index
       @workshops = Workshop.all.order(:start_date).reverse
     end
