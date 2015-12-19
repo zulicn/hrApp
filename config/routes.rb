@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Admin routes
   namespace :admin do
     resources :projects do
       put :archive, on: :member
@@ -35,14 +36,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
   end
 
-  resources :projects
-  resources :teams
-  resources :events
-  resources :user_tasks, only: [:create, :destroy, :edit, :update]
-  resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit, :update]
-  resource :dashboard, only: :show
-
+  # User routes
   resources :memberships do
     post :reject, on: :collection
   end
@@ -51,7 +45,13 @@ Rails.application.routes.draw do
     post :join, on: :member
   end
 
-
+  resources :projects
+  resources :teams
+  resources :events
+  resources :user_tasks, only: [:create, :destroy, :edit, :update]
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :edit, :update]
+  resource :dashboard, only: :show
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   get 'password_resets/new'
