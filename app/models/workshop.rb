@@ -16,7 +16,7 @@ class Workshop < ActiveRecord::Base
     start_date - 1.month
   end
 
-  def for_apply
+  def self.for_apply
     where('start_date > ?', 1.month.from_now)
   end
 end
