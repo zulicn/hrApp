@@ -4,7 +4,9 @@
       <div class="panel-heading violet-heading"><span class="glyphicon glyphicon-bell"></span> Notifikacije</div>
       <div class="panel-body">
         <% @dashboard.notifications.each do |notification| %>
-          <p class="notification"><%= notification.message %> <%= link_to 'Pogledaj', notification.link %><p>
+          <p class="notification <%= notification.class %>"><%= notification.message %>
+            <%= link_to 'Pogledaj', notification.link unless notification.link.nil? %>
+          <p>
         <% end %>
       </div>
     </div>

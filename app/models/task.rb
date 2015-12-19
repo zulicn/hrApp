@@ -27,4 +27,7 @@ class Task < ActiveRecord::Base
   	end
   end
 
+  def days_to_deadline
+    (deadline - Date.today).to_i
+  end
 end

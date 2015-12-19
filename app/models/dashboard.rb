@@ -21,6 +21,15 @@ class Dashboard
   end
 
   def build_notifications
+    user_tasks = @user.tasks.where('deadline > ?', Time.now)
+    user_tasks.each do |task|
+      next if task.deadline > 2.days.from_now
+      notifications << Notification.new(
+        message: "Deadline za task #{task.name} vam ističe za #{task.days_to_deadline} dana",
+        class: 'red'
+        )
+    end
+
     projects = Project.all
     projects.each do |project|
       next if project.member?(@user)
@@ -28,6 +37,22 @@ class Dashboard
         message: "Kreiran je novi projekat #{project.name}, da li želite učestvovati",
         link: "/memberships/new?project_id=#{project.id}"
       )
+    end
+
+    events = Event.includes(:users).where(is_active: true)
+    events.each do |event|
+      next if event.joined?(@user)
+      notifications << Notification.new(
+        message: "Kreiran je novi event #{event.name}, da li želite prisustvovati",
+        link: "/events/#{event.id}"
+        )
+    end
+
+    workshops = Workshop.for_apply
+    workshops.each do |ws|
+      notifications << Notification.new(
+        message: "Kreirana je nova radionica #{ws.name}, prijave do #{ws.deadline.strftime('%d.%m.%Y')}",
+        )
     end
   end
 

@@ -12,4 +12,11 @@ class Workshop < ActiveRecord::Base
   	end
   end
 
+  def deadline
+    start_date - 1.month
+  end
+
+  def for_apply
+    where('start_date > ?', 1.month.from_now)
+  end
 end
