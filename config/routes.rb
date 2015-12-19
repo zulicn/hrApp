@@ -1,46 +1,38 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
-
   namespace :admin do
     resources :projects do
-      member do
-        put 'archive'
-        put 'activate'
-      end
+      put :archive, on: :member
+      put :activate, on: :member
       resources :project_teams, only: :show do
-        resources :tasks, only: [:new, :create,:update,:edit,:destroy]
+        resources :tasks, only: [:new, :create, :update, :edit, :destroy]
       end
     end
-    
-    resources :workshops
+
     resources :events do
-      member do
-        put 'archive'
-        put 'activate'
-      end
-      get 'attendence_logs'
-      get 'charges_logs'
+      put :archive, on: :member
+      put :activate, on: :member
+      get :attendence_logs
+      get :charges_logs
     end
 
     resources :event_attendences do
-      put 'charge_fee'
-      put 'commit_attendence'
-      put 'charge_undo'
-      put 'undo_attendence'
+      put :charge_fee
+      put :commit_attendence
+      put :charge_undo
+      put :undo_attendence
     end
 
     resources :users, only: [:index, :show] do
-      post 'accept', on: :member
-      post 'promote', on: :member
+      post :accept, on: :member
+      post :promote, on: :member
     end
-
-    resource :dashboard, only: :show
 
     resources :teams do
       resources :annual_tasks, only: [:new, :create]
     end
+
+    resources :workshops
+    resource :dashboard, only: :show
   end
 
   resources :projects
@@ -60,7 +52,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'welcomes#show'
 end
