@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
     validate :start_date_before_end_date
 
     def joined?(user)
-        users.include?(user)
+      users.include?(user)
     end
 
     def start_date_before_end_date
