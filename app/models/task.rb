@@ -1,7 +1,8 @@
 class Task < ActiveRecord::Base
-	   attr_accessor :admin_report
+	attr_accessor :admin_report
   belongs_to :team
   belongs_to :project_team
+  belongs_to :project
   belongs_to :creator, class_name: 'User'
 
   has_many :user_tasks
@@ -11,6 +12,12 @@ class Task < ActiveRecord::Base
   validates :deadline_to_apply, presence: true
   validates :deadline, presence: true
   validate :start_date_before_end_date
+
+  scope :active, -> { where(is_active: true) }
+
+  def self.open_for_apply 
+    where('is_active = ? and deadline_to_apply > ?', true, Time.now)
+  end
 
   def late?
     Time.now > deadline
