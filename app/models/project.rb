@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   has_many :memberships
   has_many :teams, through: :project_teams
   has_many :users, through: :memberships
+  has_many :tasks, through: :project_teams
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

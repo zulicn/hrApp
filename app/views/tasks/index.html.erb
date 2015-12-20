@@ -1,0 +1,60 @@
+<div class="image-transparent-container project-container">
+	<div class="col-lg-4 left">
+		<div class="name">Naziv projekta: <%= @project.name %> </div>
+
+		<div class="desc"><b>Opis projekta:</b> <%= @project.description %></div>
+
+		<div class="when"><b>Kada?</b> <%= @project.start_date %> - <%= @project.end_date %> </div>
+	</div>
+
+	<div class="col-lg-8 right">
+		<div class="row">
+			  <div class="panel panel-default">
+		      <div class="panel-heading pacific-heading">
+			      Otvoreni zadaci
+		      </div>
+			      
+			     <div class="panel-body">
+			      <ul class="list-group">
+			            
+			        <% @tasks.each do |task| %>
+			
+				        <li class="list-group-item">
+						       <a style="cursor: pointer;" onclick="javascript:showApplicationModal('#application-modal', '<%= task.id %>', '<%= task.description %>');">
+		                Prijavi se
+		              </a>
+							    <span class="badge"><%= task.user_tasks.count %> <span class="glyphicon glyphicon-user"></span></span>
+							    <span class="badge"><%= task.project_team.team.shortcode %></span></span>
+
+							    <span class="badge <%= task_active_badge(task) %>"> <%= task_active_badge(task) %> </span>
+							    <%= task.name %>
+							    <%= task.id %>
+								</li>
+							 	
+			        <% end %>
+
+
+			      </ul>
+			      			    
+			    </div>
+
+			  </div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="application-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p id="task-description"></p>
+        <%= form_tag('/user_tasks', method: :post) do %>
+          <input type="hidden" id="task_id" name="task_id" />
+          <%= submit_tag 'Prijavi se', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

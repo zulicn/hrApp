@@ -41,11 +41,13 @@ Rails.application.routes.draw do
     post :reject, on: :collection
   end
 
-  resources :events, only: [:show] do
+  resources :events, only: [:show,] do
     post :join, on: :member
   end
 
-  resources :projects
+  resources :projects, only: [:index, :show] do
+    resources :tasks, only: [:index]
+  end
   resources :teams
   resources :events
   resources :user_tasks, only: [:create, :destroy, :edit, :update]
