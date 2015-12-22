@@ -1,0 +1,6 @@
+<div class="projects-form">
+	<%= form_for @report, url: { action: "create_report" }, html: { name: 'form-center' } do |f| %>
+
+	  	<%= render partial: 'report_form', :locals => { :f => f, :submit_label => "Spasi" } %>
+	<% end %>
+</div>

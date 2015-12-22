@@ -53,6 +53,12 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :workshops, only: [:show] do
+    get :new_report, on: :member
+    get :edit_report, on: :member
+    post :create_report, on: :member
+    patch :update_report, on: :member
+  end
 
   get 'password_resets/new'
   get 'password_resets/edit'

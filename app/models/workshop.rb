@@ -6,6 +6,10 @@ class Workshop < ActiveRecord::Base
   validates :end_date, presence: true
   validate :start_date_before_end_date
 
+  has_many :workshop_attendences
+  has_many :users, through: :workshop_attendences
+  has_one :report, foreign_key: "workshop_id", class_name: "WorkshopReport"
+
   def start_date_before_end_date
     if start_date > end_date
       errors.add(:datum, "Kraj radionice mora biti poslije početka")

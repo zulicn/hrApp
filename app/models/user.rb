@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :event_attendences
   has_many :events, through: :event_attendences
+  has_many :workshop_attendences
+  has_many :workshops, through: :workshop_attendences
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true

@@ -88,7 +88,20 @@
     <div class="panel panel-default">
       <div class="panel-heading yellow-heading"><span class="glyphicon glyphicon-globe"></span> Moje radionice</div>
       <div class="panel-body">
-        Niste prisustvovali radionicama.
+        <% if @dashboard.workshops.empty? %>
+          Niste prisustvovali radionicama.
+        <% else %>
+          <% @dashboard.workshops.each do |workshop| %>
+            <p>
+              <%= workshop.name %> 
+              <% if workshop.report %>
+                <%= link_to 'Izmijeni izvještaj', edit_report_workshop_path(workshop) %>
+              <% else %>
+                <%= link_to 'Kreiraj izvještaj', new_report_workshop_path(workshop) %>
+              <% end %>
+            </p>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
