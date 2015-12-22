@@ -78,8 +78,20 @@
       <span class="glyphicon glyphicon-tag"></span> Aktivni projekti
       </div>
       <div class="panel-body">
-        <% @dashboard.active_projects.each do |project| %>
-          <p><%= project.name %></p>
+        <form style="padding-bottom: 20px;">
+          <label class="radio-inline">
+            <input type="radio" name="projects" class="filterProjects" value="active_projects" <% if !params[:projects].present? || params[:projects] == 'active_projects' %>checked<% end %>> Aktivni projekti
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="projects" class="filterProjects" value="archieve_projects" <% if params[:projects] == 'archieve_projects' %>checked<% end%>> Arhivirani projekti
+          </label>
+        </form>
+        <% @dashboard.projects.each do |project| %>
+          <% if @current_user.is_admin? %>
+            <%= link_to project.name, admin_project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
+          <% else %>
+            <%= link_to project.name, project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -125,6 +137,10 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('.filterTasks').click(function() {
+      $(this).parent().parent().submit();
+    });
+
+    $('.filterProjects').click(function() {
       $(this).parent().parent().submit();
     });
   });

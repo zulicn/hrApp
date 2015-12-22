@@ -1,12 +1,12 @@
 class Dashboard
 
-  attr_accessor :notifications, :active_projects, :active_events, :tasks, :applications, :workshops
+  attr_accessor :notifications, :projects, :active_events, :tasks, :applications, :workshops
 
   def initialize(user, filter)
     @user = user
     @filter = filter
     @notifications = []
-    @active_projects = []
+    @projects = []
     @active_events = []
     @tasks = []
     @workshops = []
@@ -14,7 +14,7 @@ class Dashboard
 
   def build
     build_notifications
-    build_active_projects
+    build_projects
     build_active_events
     build_applications
     build_tasks
@@ -58,8 +58,12 @@ class Dashboard
     end
   end
 
-  def build_active_projects
-    @active_projects = Project.where(is_active: true)
+  def build_projects
+    if @filter[:projects] == 'archieve_projects'
+      @projects = Project.where(is_active: false)
+    else 
+      @projects = Project.where(is_active: true)
+    end 
   end
 
 
