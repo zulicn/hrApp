@@ -14,7 +14,7 @@
 
   <% if @new_images > 0 %>
 	<% (1..@new_images).each do |index| %>
-      <%= text_field_tag 'workshop_report[new_images][]', nil, placeholder: "Fotografija", class: "form-control" %><br>
+      <%= text_field_tag "workshop_report[new_images][#{index}]", nil, placeholder: "Fotografija", class: "form-control" %><br>
     <% end %>
   <% end %>
 

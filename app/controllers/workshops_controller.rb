@@ -1,4 +1,5 @@
 class WorkshopsController  < ApplicationController
+	# User can add 3 images
 	NUMBER_OF_IMAGES = 3
 
 	def new_report
@@ -10,7 +11,6 @@ class WorkshopsController  < ApplicationController
 	def edit_report
 	  @workshop = Workshop.find(params[:id])
 	  @report = @workshop.report
-	  # User can add 3 images
 	  @new_images = NUMBER_OF_IMAGES - @report.images.count
 	end
 
@@ -18,8 +18,9 @@ class WorkshopsController  < ApplicationController
 	  @workshop = Workshop.find(params[:id])
 	  @report = WorkshopReport.new(workshop_id: @workshop.id, content: params[:workshop_report][:content])
 	  if params[:workshop_report][:new_images]
-	    params[:workshop_report][:new_images].each do |image| 
-		  @report.images.build(image_url: image)
+	    params[:workshop_report][:new_images].each do |image|
+	      image_url = image[1]
+		  @report.images.build(image_url: image_url) unless image_url.blank?
 		end
 	  end
 	  @report.save
@@ -33,8 +34,9 @@ class WorkshopsController  < ApplicationController
 	  @report.save
 
 	  if params[:workshop_report][:new_images]
-	    params[:workshop_report][:new_images].each do |image| 
-		  @report.images.build(image_url: image)
+	    params[:workshop_report][:new_images].each do |image|
+	      image_url = image[1]
+		  @report.images.create(image_url: image_url) unless image_url.blank?
 		end
 	  end
 
