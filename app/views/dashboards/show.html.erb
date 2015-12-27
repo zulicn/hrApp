@@ -140,12 +140,15 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    var params = <%= raw params.except(:controller, :action).to_json %>;
     $('.filterTasks').click(function() {
-      $(this).parent().parent().submit();
+      params.tasks = $(this).val();
+      window.location.href = "?" + jQuery.param(params);
     });
 
     $('.filterProjects').click(function() {
-      $(this).parent().parent().submit();
+      params.projects = $(this).val();
+      window.location.href = "?" + jQuery.param(params);
     });
   });
 </script>
