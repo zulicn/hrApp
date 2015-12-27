@@ -89,11 +89,13 @@
           </label>
         </form>
         <% @dashboard.projects.each do |project| %>
-          <% if @current_user.is_admin? %>
-            <%= link_to project.name, admin_project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
-          <% else %>
-            <%= link_to project.name, project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
-          <% end %>
+          <li class="list-group-item">
+            <% if @current_user.is_admin? %>
+              <%= link_to project.name, admin_project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
+            <% else %>
+              <%= link_to project.name, project_path(project), title: 'Pogledaj projekat', rel: 'tooltip' %>
+            <% end %>
+          </li>
         <% end %>
       </div>
     </div>
