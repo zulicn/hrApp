@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     role.name === 'Admin'
   end
 
+  def alumni?
+    role_id === Role.alumni.id
+  end
+
   def self.search(search)
     where("CONCAT(firstname, ' ', lastname) LIKE ?", "%#{search}%")
   end

@@ -1,22 +1,37 @@
-Evidencija uplata
-<table class="table">
-  <thead>
-    <th>Ime i prezime</th>
-    <th>Status</th>
-  </thead>
-  <tbody>
-  <% @event_charges.each do |e| %>
-    <tr class="event-active">
-      <td><%= e.user.fullname %></td>
-      <td width="400px">
-          <% if e.is_charge_paid %>
-            Evidentirana uplata -
-            <%= link_to 'Ponisti', admin_event_attendence_charge_undo_path(e), method: :put %>
-          <% else %>
-            <%= link_to 'Evidentiraj uplatu', admin_event_attendence_charge_fee_path(e), method: :put %>
+<%= link_to 'Nazad', admin_events_path %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default events-list">
+      <div class="panel-heading pacific-heading">
+        Evidencija uplata
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <th>Ime i prezime</th>
+            <th>Status</th>
+          </thead>
+          <tbody>
+          <% @event_charges.each do |e| %>
+            <tr>
+              <td><%= e.user.fullname %></td>
+              <td width="400px">
+                  <% if e.is_charge_paid %>
+                    <span class="glyphicon glyphicon-check" data-toggle="tooltip" data-placement="top" title="Evidentirana uplata"></span> |
+                    <%= link_to admin_event_attendence_charge_undo_path(e), method: :put do %>
+                      <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="Poništi"></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to admin_event_attendence_charge_fee_path(e), method: :put do %>
+                      <span class="glyphicon glyphicon-unchecked" data-toggle="tooltip" data-placement="top" title="Evidentiraj uplatu"></span>
+                    <% end %>
+                  <% end %>
+              </td>
+            </tr>
           <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

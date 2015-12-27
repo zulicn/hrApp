@@ -10,6 +10,8 @@
   <td class="admin-field" width="200px">
   <% if user.is_admin? %>
     Administrator
+  <% elsif user.alumni? %>
+    Alumni
   <% else %>
     <%= button_to 'Promoviraj u administratora', promote_admin_user_path(user), remote: true, class: 'btn-link' %>
   <% end %>

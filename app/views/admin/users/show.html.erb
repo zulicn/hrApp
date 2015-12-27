@@ -4,6 +4,7 @@
       <p id="notice"><%= notice %></p>
 
       <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Označi kao alumni', send_to_alumni_admin_user_path(@user), method: :post unless @user.alumni? %> |
       <%= link_to 'Back', admin_users_path %>
     </div>
   </div>
@@ -14,10 +15,13 @@
         <div class="panel-heading">Osnovne informacije</div>
         <div class="panel-body">
           <table class="table table-hover">
-            <tr><td>Ime:</td><td><%= @user.fullname %></td></tr>
+            <tr><td>Ime:</td><td><%= @user.fullname %> <% if @user.alumni? %>(Alumni)<% end %></td></tr>
             <tr><td>Email:</td><td><%= @user.email %></td></tr>
             <tr><td>Phone:</td><td><%= @user.phone %></td></tr>
             <tr><td>Odsjek:</td><td><%= @user.department.name %></td></tr>
+            <% if @user.alumni? %>
+              <tr><td>Zanimanje:</td><td><%= @user.alumni_position %></td></tr>
+            <% end %>
           </table>
         </div>
       </div>

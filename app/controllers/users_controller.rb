@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = sign_up(user_params.merge(role_id: Role.member.id, is_accepted: false))
     respond_to do |format|
-      # if user is saved by sign up method id will be populated 
+      # if user is saved by sign up method id will be populated
       if @user.id
         #EestecMailer.new_user(@user.firstname).deliver
         format.html { redirect_to dashboard_path, notice: 'User was successfully created.' }
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :username, :email, :phone, :department_id, :birth_date, :place_of_birth, :previous_experience, :reason_of_enrollment, :additional_skills, :password)
+    params.require(:user).permit(:firstname, :lastname, :username, :email, :phone, :department_id, :birth_date, :place_of_birth, :previous_experience, :reason_of_enrollment, :additional_skills, :password, :alumni_position)
   end
 
   def set_user

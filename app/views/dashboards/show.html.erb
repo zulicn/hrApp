@@ -54,12 +54,14 @@
   <div class="col-lg-4">
   <div class="panel panel-default">
     <div class="panel-heading pacific-heading">
-      <span class="glyphicon glyphicon-calendar"></span> Aktuelni događaji</div>
+      <span class="glyphicon glyphicon-calendar"></span> Aktuelni događaji
+      <%= link_to events_path do %>
+        <span class="glyphicon glyphicon-play pull-right" data-toggle="tooltip" data-placement="top" title="Moji događaji"></span>
+      <% end %>
+    </div>
     <div class="panel-body">
-      <%= link_to '-> Vidi moje evente', events_path, title: 'Pogledaj moje evente', rel: 'tooltip', class: 'all-user-events-link' %>
-
       <% if @dashboard.active_events.empty? %>
-          Nema aktuelnih događaja.
+          <p>Nema aktuelnih događaja.</p>
       <% else %>
           <% @dashboard.active_events.each do |event| %>
               <p class="<%= user_subscribed_to_event_class(event) %>"><%= event.name %>
@@ -105,7 +107,7 @@
         <% else %>
           <% @dashboard.workshops.each do |workshop| %>
             <p>
-              <%= workshop.name %> 
+              <%= workshop.name %>
               <% if workshop.report %>
                 <%= link_to 'Izmijeni izvještaj', edit_report_workshop_path(workshop) %>
               <% else %>

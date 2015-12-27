@@ -20,9 +20,6 @@
               <td><%= team.name %></td>
               <td><%= team.shortcode %></td>
               <td>
-                <%= link_to new_admin_team_annual_task_path(team, @team) do %>
-                  <span class="glyphicon glyphicon-pushpin" data-toggle="tooltip" data-placement="top" title="Dodaj task"></span>
-                <% end %> |
                 <%= link_to edit_admin_team_path(team) do %>
                   <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Promijeni"></span>
                 <% end %> |
