@@ -196,6 +196,10 @@ p.form-title
 	color: $green;
 	border-color: $green;
 }
+
+.form-control {
+	line-height: 34px;
+}
 form[name=form-center]{
     margin-left: 25%;
     margin-right:25%;
@@ -206,8 +210,14 @@ form[name=form-center]{
     border: 2px solid #62B948;
     padding: 20px;
 }
-form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop, form[name=form-center].edit_event,  form[name=form-center].new_event{
+form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop, form[name=form-center].edit_event,  form[name=form-center].new_event,
+form[name=form-center].edit_workshop_report, form[name=form-center].new_workshop_report {
   margin-top: 5%;
+}
+
+form[name=form-center].edit_workshop_report, form[name=form-center].new_workshop_report {
+	margin-top: 3%;
+	margin-bottom: 5%;
 }
 
 .workshop-description{
@@ -219,6 +229,12 @@ form[name=form-center].edit_project,  form[name=form-center].new_project, form[n
     border-radius: 25px;
     border: 2px solid #62B948;
     padding: 20px;
+}
+
+.workshops-form {
+	h4 {
+		text-align: center;
+	}
 }
 
 form[name=form-centerr]{
@@ -443,4 +459,8 @@ form[name=form-centerrp] label {
 
 .user-not-subscribed-to-event {
   color: #B00100;
+}
+
+.report-area {
+	height: 400px !important;
 }

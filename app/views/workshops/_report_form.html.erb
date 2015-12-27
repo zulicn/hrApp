@@ -1,0 +1,26 @@
+<div class="form-group">
+  <%= f.label :content, 'Izvjestaj' %>
+  <%= f.text_area :content, class: "form-control report-area", required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label :images, 'Fotografije (Dodati linkove slika koje su javno dostupne)' %>
+
+  <% if @report.images %>
+  	<% @report.images.each do |img| %>
+  	  <%= text_field_tag "workshop_report[images][#{img.id}]", img.image_url , class: "form-control" %><br>
+  	<% end %>
+  <% end %>
+
+  <% if @new_images > 0 %>
+	<% (1..@new_images).each do |index| %>
+      <%= text_field_tag "workshop_report[new_images][#{index}]", nil, placeholder: "Fotografija", class: "form-control" %><br>
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class="form-group">
+  <%= f.submit submit_label, class: "btn btn-success" %>
+  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+</div>

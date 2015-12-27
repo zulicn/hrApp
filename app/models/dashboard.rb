@@ -1,6 +1,6 @@
 class Dashboard
 
-  attr_accessor :notifications, :projects, :active_events, :tasks, :applications
+  attr_accessor :notifications, :projects, :active_events, :tasks, :applications, :workshops
 
   def initialize(user, filter)
     @user = user
@@ -9,6 +9,7 @@ class Dashboard
     @projects = []
     @active_events = []
     @tasks = []
+    @workshops = []
   end
 
   def build
@@ -17,6 +18,7 @@ class Dashboard
     build_active_events
     build_applications
     build_tasks
+    build_workshops
     self
   end
 
@@ -83,6 +85,10 @@ class Dashboard
         @tasks << task
       end
     end
+  end
+
+  def build_workshops
+    @workshops = @user.workshops
   end
 
   def build_applications

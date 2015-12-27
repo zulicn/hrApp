@@ -1,0 +1,6 @@
+<div class="workshops-form">
+	<h4 class="title">Izvještaj sa radionice "<%= @workshop.name %>"</h4>
+	<%= form_for @report, url: { action: "update_report" }, html: { name: 'form-center' } do |f| %>
+	  	<%= render partial: 'report_form', :locals => { :f => f, :submit_label => "Spasi" } %>
+	<% end %>
+</div>
