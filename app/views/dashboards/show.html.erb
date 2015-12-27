@@ -29,7 +29,7 @@
         <ul class="list-group">
         <% @dashboard.tasks.each do |task| %>
           <li class="list-group-item">
-            <span class="badge"> <%= task_label(task, @dashboard.applications) %> </span>
+            <span class="badge" style="margin-top: 5px;"> <%= task_label(task, @dashboard.applications) %> </span>
             <% if task_label(task, @dashboard.applications) == 'Otvoren' %>
               <button type="button" class="btn btn-success btn-sm" onclick="javascript:showApplicationModal('#application-modal', '<%= task.id %>', '<%= task.description %>');" style="margin-right: 5px;">
                 Prijavi se
