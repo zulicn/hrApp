@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show] do
       post :accept, on: :member
       post :promote, on: :member
+      post :send_to_alumni, on: :member
     end
 
     resources :teams do

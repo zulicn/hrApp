@@ -19,7 +19,7 @@ module Admin
       if @user.save
         EestecMailer.user_acceptance(@user.id).deliver
         respond_to do |format|
-          format.html { redirect_to users_path }
+          format.html { redirect_to admin_users_path }
           format.js { }
         end
       end
@@ -28,12 +28,19 @@ module Admin
     # Promote user to admin
     def promote
       @user = User.find(params[:id])
-      @user.role = Role.find_by(name: 'Admin')
+      @user.role = Role.admin
       @user.save!
       respond_to do |format|
-        format.html { redirect_to users_path }
+        format.html { redirect_to admin_users_path }
         format.js { }
       end
+    end
+
+    def send_to_alumni
+      @user = User.find(params[:id])
+      @user.role = Role.alumni
+      @user.save!
+      redirect_to :back
     end
 
     def show
