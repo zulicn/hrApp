@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top dashboard">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -24,8 +24,8 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'Dashboard', dashboard_path %></li>
+        <ul class="nav navbar-nav navbar">
+          <%= link_to 'Dashboard', admin_dashboard_path, class: 'btn btn-default btn-dashboard' %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

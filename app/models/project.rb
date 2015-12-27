@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
 
   def start_date_before_end_date
     if start_date > end_date
-      errors.add(:datum, "Kraj projekta mora biti poslije početka projekta")
+      errors.add(:datum, "kraj projekta mora biti poslije početka projekta")
   	end
   end
 

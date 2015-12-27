@@ -15,7 +15,7 @@
     <div class="panel panel-default">
       <div class="panel-heading green-heading"><span class="glyphicon glyphicon-list"></span> Task manager</div>
       <div class="panel-body">
-        <form>
+        <form style="padding-bottom: 20px;">
           <label class="radio-inline">
             <input type="radio" name="tasks" class="filterTasks" value="all_tasks" <% if !params[:tasks].present? || params[:tasks] == 'all_tasks' %>checked<% end %>> Svi taskovi
           </label>
@@ -31,13 +31,13 @@
           <li class="list-group-item">
             <span class="badge"> <%= task_label(task, @dashboard.applications) %> </span>
             <% if task_label(task, @dashboard.applications) == 'Otvoren' %>
-              <button type="button" class="btn btn-success btn-sm" onclick="javascript:showApplicationModal('#application-modal', '<%= task.id %>', '<%= task.description %>');">
+              <button type="button" class="btn btn-success btn-sm" onclick="javascript:showApplicationModal('#application-modal', '<%= task.id %>', '<%= task.description %>');" style="margin-right: 5px;">
                 Prijavi se
               </button>
                 <%= task.name %> | <%= task.project_team.team.shortcode  %>
             <% else %>
 
-                <%= button_to 'Odustani', user_task_path(task), method: :delete, class: 'btn btn-warning btn-sm left-button' %>
+                <%= button_to 'Odustani', user_task_path(task), method: :delete, class: 'btn btn-warning btn-sm inline-class' %>
                 <% if task_label(task, @dashboard.applications) == 'Odobren' %>
                   <%= link_to task.name, edit_user_task_path(task), title: 'Uredi task', rel: 'tooltip' %>
                 <% else %>

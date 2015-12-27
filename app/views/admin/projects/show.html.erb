@@ -9,12 +9,15 @@
 
 	<div class="col-lg-8 right">
 		<div class="row">
+		    <%= button_to 'Prijavi se za zadatak!', project_tasks_path(@project), class: 'pull-right btn btn-default', :method => :get%>
 			<% @project.project_teams.each do |project_team| %>
 			<div class="col-lg-6">
 			  <div class="panel panel-default">
 			      <div class="panel-heading pacific-heading">
 				      <%= project_team.team.shortcode %>
-				      <%= button_to 'Dodaj novi task', new_admin_project_project_team_task_path(@project, project_team), class: 'pull-right btn btn-default', :method => :get%>
+				      <%= link_to new_admin_project_project_team_task_path(@project, project_team), class: 'pull-right', :method => :get do %>
+				        <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj task"></span>
+				      <% end %>
 			      </div>
 			      
 			      <div class="panel-body">
