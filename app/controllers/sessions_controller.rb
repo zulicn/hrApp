@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   layout 'public'
 
   def new
+    
   end
 
   def create
@@ -17,7 +18,11 @@ class SessionsController < ApplicationController
         end
       end
     else
-      respond_with(user, location: dashboard_path) and return
+      if user
+        flash[:notice] = "Administrator još uvijek nije prihvatio vašu aplikaciju. Za više informacija kontaktirajte hr@eestec-sa.ba."
+      else
+        flash[:notice] = "Login podaci nisu validni!"
+      end 
     end
     render :new
   end
