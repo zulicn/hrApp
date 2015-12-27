@@ -2,13 +2,15 @@
 <div class="projects-form">
 	<%= form_for @task, url: { action: "create" }, html: { name: 'form-center' } do |f| %>
 	  <% if @task.errors.any? %>
-	      <h2>Greške:</h2>
+	      <div id="error_explanation">
+	        <h2>Nevalidni unosi:</h2>
 
-	      <ul>
-		      <% @task.errors.full_messages.each do |msg| %>
-		        <li><%= msg %></li>
-		      <% end %>
-	      </ul>
+	        <ul>
+	        <% @task.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	        </ul>
+	    </div>
 	  <% end %>
 
 	  <%= render partial: 'form', :locals => { :f => f, :submit_label => "Dodaj" } %>
