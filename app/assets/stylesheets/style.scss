@@ -19,6 +19,16 @@ body {
 .pull-left {
 	float: left;
 }
+
+form {
+	margin-bottom: 90px;
+}
+
+.btn-success {
+	color: $green;
+	background: #fff;
+	border-color: $green;
+}
 /* LANDING */
 .navbar-fixed-top {
 	margin-bottom: 0px;
@@ -44,6 +54,14 @@ body {
 	text-align: center;
 	padding: 5% 10px;
 	color: $violet;
+}
+
+/* ERRORS */
+#error_explanation {
+	color: $red;
+	h2 {
+	  font-size: 12px;
+	}
 }
 
 /* DASHBOARD */
@@ -97,7 +115,7 @@ body {
 .dashboard-container {
 	font-family: 'Lato';
 	font-weight: 500;
-	padding: 75px 25px 40px;
+	padding: 65px 25px 40px;
 	.panel {
     .notification {
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -155,38 +173,12 @@ body {
 }
 
 /*login and registration form*/
-.login-form
-{
-  height: 100vh;
-}
-
-.registration-form
-{
-  background: url(cover.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 200vh;
-}
-
-.projects-form{
-	height: 100vh;
-}
-
-.teams-form{
-	height: 70vh;
-}
-
-.events-form{
-	height: 100vh;
-}
 
 p.form-title
 {
     font-family: 'Lato';
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 300;
     text-align: center;
     color: #62B948;
     text-transform: uppercase;
@@ -205,11 +197,14 @@ form[name=form-center]{
     margin-left: 25%;
     margin-right:25%;
     margin-top:10%;
-
     background:#F7F7F7;
-    border-radius: 25px;
-    border: 2px solid #62B948;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.2);
     padding: 20px;
+
+    .form-group {
+      font-weight: 300;
+    }
 }
 form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop, form[name=form-center].edit_event,  form[name=form-center].new_event,
 form[name=form-center].edit_workshop_report, form[name=form-center].new_workshop_report {
@@ -225,10 +220,9 @@ form[name=form-center].edit_workshop_report, form[name=form-center].new_workshop
     margin-left: 35%;
     margin-right:35%;
     margin-top:10%;
-
     background:#F7F7F7;
-    border-radius: 25px;
-    border: 2px solid #62B948;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.2);
     padding: 20px;
 }
 
@@ -242,10 +236,9 @@ form[name=form-centerr]{
     margin-left: 25%;
     margin-right:25%;
     margin-top:3%;
-
     background:#F7F7F7;
-    border-radius: 25px;
-    border: 2px solid #62B948;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.2);
     padding: 20px;
 }
 
@@ -253,10 +246,9 @@ form[name=form-centerrp]{
     margin-left: 25%;
     margin-right:25%;
     margin-top:15%;
-
     background:#F7F7F7;
-    border-radius: 25px;
-    border: 2px solid #62B948;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.2);
     padding: 20px;
 }
 

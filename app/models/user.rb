@@ -12,10 +12,14 @@ class User < ActiveRecord::Base
   has_many :workshop_attendences
   has_many :workshops, through: :workshop_attendences
 
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validate :birth_date_not_in_future
   before_save   :downcase_email
+  before_save   :downcase_username
 
 
   def fullname
@@ -71,12 +75,17 @@ class User < ActiveRecord::Base
 
   private
 
-    # Converts email to all lower-case.
-    def downcase_email
-      self.email = email.downcase
-    end
+  # Converts email to all lower-case.
+  def downcase_email
+    self.email = email.downcase
+  end
 
-    def birth_date_not_in_future
+  # Converts username to all lower-case.
+  def downcase_username
+    self.username = username.downcase
+  end
+
+  def birth_date_not_in_future
     errors.add(:Rodjenje, "Datum rodjenja ne moze biti u buducnosti") if
       !birth_date.blank? and birth_date > Date.today
   end
