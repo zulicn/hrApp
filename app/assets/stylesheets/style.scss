@@ -23,6 +23,12 @@ body {
 form {
 	margin-bottom: 90px;
 }
+
+.btn-success {
+	color: $green;
+	background: #fff;
+	border-color: $green;
+}
 /* LANDING */
 .navbar-fixed-top {
 	margin-bottom: 0px;
@@ -109,7 +115,7 @@ form {
 .dashboard-container {
 	font-family: 'Lato';
 	font-weight: 500;
-	padding: 75px 25px 40px;
+	padding: 65px 25px 40px;
 	.panel {
     .notification {
       border: 1px solid rgba(0, 0, 0, 0.2);

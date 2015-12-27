@@ -15,12 +15,12 @@
   <%= f.date_field :end_date, class: "form-control" %>
 </div>
 <div class="form-group">
-  <p>Izaberite timove koji će učestvovati u ovom projektu</p>
+  <p>Izaberite timove za ovaj projekat:</p>
   <% @teams.each do |team| %>
     <%= check_box_tag 'teams[]', team.id, @project.teams.include?(team) %> <%= team.shortcode %>
   <% end %>
 </div>
 <div class="form-group">
   <%= f.submit submit_label, class: "btn btn-success" %>
-  <%= f.submit 'Nazad', name: 'cancel', class: "btn btn-default" %>
+  <%= link_to "Nazad", :back, {:class=>"btn btn-default"} %>
 </div>
