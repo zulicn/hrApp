@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default events-list">
-      <div class="panel-heading red-heading">
+      <div class="panel-heading pacific-heading">
         Događaji
         <a href=<%= new_admin_event_path %> >
           <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj">
@@ -22,22 +22,34 @@
             <tr class="event-active">
               <td><%= event.name %></td>
               <td width="500px"><small><%= event.description %></small></td>
-              <td><%= event.start_date.strftime("%d.%m.%Y.  %H:%M") %></td>
-              <td><%= event.end_date.strftime("%d.%m.%Y.  %H:%M") %></td>
+              <td><%= pretty_date(event.start_date) %></td>
+              <td><%= pretty_date(event.end_date) %></td>
               <td width="400px">
-                <%= link_to 'Promijeni', edit_admin_event_path(event) %> |
+                <%= link_to edit_admin_event_path(event) do %>
+                  <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Promijeni"></span>
+                <% end %> |
                 <% if event.is_active %>
-                  <%= link_to 'Arhiviraj', archive_admin_event_path(event), method: :put %> |
+                  <%= link_to archive_admin_event_path(event), method: :put do %>
+                    <span class="glyphicon glyphicon-folder-close" data-toggle="tooltip" data-placement="top" title="Arhiviraj"></span>
+                  <% end %> |
                 <% else %>
-                  <%= link_to 'Aktiviraj', activate_admin_event_path(event), method: :put %> |
-                <% end %>
+                  <%= link_to activate_admin_event_path(event), method: :put do %>
+                    <span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="top" title="Aktiviraj"></span>
+                  <% end %>
+                <% end %> |
                 <% if event.is_chargeable %>
-                  <%= link_to 'Evidentiraj uplate', admin_event_charges_logs_path(event) %> |
+                  <%= link_to admin_event_charges_logs_path(event) do %>
+                    <span class="glyphicon glyphicon-list" data-toggle="tooltip" data-placement="top" title="Evidentiraj uplate"></span>
+                  <% end %> |
                 <% end %>
                 <% if event.should_record_attendence %>
-                  <%= link_to 'Evidentiraj prisustvo', admin_event_attendence_logs_path(event) %> |
+                  <%= link_to admin_event_attendence_logs_path(event) do %>
+                  <span class="glyphicon glyphicon-check" data-toggle="tooltip" data-placement="top" title="Evidentiraj prisustvo"></span>
+                  <% end %> |
                 <% end %>
-                <%= link_to 'Izbriši', admin_event_path(event), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
+                <%= link_to admin_event_path(event), method: :delete, data: { confirm: "Jeste li sigurni?" } do %>
+                  <span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Izbriši"></span>
+                <% end %>
               </td>
             </tr>
           <% end %>

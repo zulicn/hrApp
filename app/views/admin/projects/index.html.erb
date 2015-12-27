@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-      <div class="panel-heading red-heading">
-        Aktivni projekti
+      <div class="panel-heading green-heading">
+        Projekti
         <a href=<%= new_admin_project_path %> >
           <span class="glyphicon glyphicon-plus-sign pull-right" data-toggle="tooltip" data-placement="top" title="Dodaj"></span>
         </a>
@@ -11,7 +11,6 @@
         <table class="table">
           <thead>
             <th>Ime</th>
-            <th>Opis</th>
             <th>Početak</th>
             <th>Kraj</th>
             <th>Timovi</th>
@@ -21,18 +20,25 @@
           <% @projects.each do |project| %>
             <tr class="<%= project_active_class(project) %>">
               <td><%= link_to project.name, admin_project_path(project) %></td>
-              <td><small><%= project.description %></small></td>
-              <td><%= project.start_date %></td>
-              <td><%= project.end_date %></td>
+              <td><%= pretty_date(project.start_date) %></td>
+              <td><%= pretty_date(project.end_date) %></td>
               <td><%= project.teams.map(&:shortcode).join(', ') %></td>
               <td>
-                <%= link_to 'Promijeni', edit_admin_project_path(project) %> |
+                <%= link_to edit_admin_project_path(project) do %>
+                  <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Promijeni"></span>
+                <% end %> |
                 <% if project.is_active %>
-                  <%= link_to 'Arhiviraj', archive_admin_project_path(project), method: :put %> |
+                  <%= link_to archive_admin_project_path(project), method: :put do %>
+                    <span class="glyphicon glyphicon-folder-close" data-toggle="tooltip" data-placement="top" title="Arhiviraj"></span>
+                  <% end %> |
                 <% else %>
-                  <%= link_to 'Aktiviraj', activate_admin_project_path(project), method: :put %> |
+                  <%= link_to activate_admin_project_path(project), method: :put do %>
+                    <span class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="top" title="Aktiviraj"></span>
+                  <% end %> |
                 <% end %>
-                <%= link_to 'Izbriši', admin_project_path(project), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
+                <%= link_to admin_project_path(project), method: :delete, data: { confirm: "Jeste li sigurni?" } do %>
+                  <span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Izbriši"></span>
+                <% end %>
               </td>
             </tr>
           <% end %>
