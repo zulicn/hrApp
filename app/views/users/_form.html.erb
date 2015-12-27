@@ -1,5 +1,8 @@
 <%if @edit %>
-  <p class="form-title">Edit Profila</p>
+  <%= link_to dashboard_path do %>
+   <span class="glyphicon glyphicon-hand-left"> Nazad</span>
+  <% end %>
+  <p class="form-title">Uredi Profil</p>
 <%else%>
   <p class="form-title">Registracija</p>
 <%end%>
