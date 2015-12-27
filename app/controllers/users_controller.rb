@@ -14,11 +14,9 @@ class UsersController < ApplicationController
       # if user is saved by sign up method id will be populated
       if @user.id
         #EestecMailer.new_user(@user.firstname).deliver
-        format.html { redirect_to dashboard_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        redirect_to dashboard_path
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
@@ -30,11 +28,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update_attributes(user_params)
-        format.html { redirect_to dashboard_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :created, location: @user }
+        redirect_to dashboard_path
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
