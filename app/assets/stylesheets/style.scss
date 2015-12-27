@@ -2,11 +2,6 @@
 
 /* COMMON */
 .image-container {
-  background: url(cover.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 100vh;
 }
 
@@ -15,11 +10,6 @@
 }
 
 body {
-  background: url(transparentcover.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 .pull-right {
@@ -35,7 +25,7 @@ body {
 }
 
 .navbar {
-  font-family: 'Hind';
+  font-family: 'Lato';
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 14px;
@@ -47,6 +37,13 @@ body {
 	.pacific-blue > a, .pacific-blue > a:hover, .dropdown-toggle {
 		color: $pacific-blue !important;
 	}
+}
+
+/* WELCOME */
+.welcome {
+	text-align: center;
+	padding: 5% 10px;
+	color: $violet;
 }
 
 /* DASHBOARD */
@@ -98,7 +95,7 @@ body {
 }
 
 .dashboard-container {
-	font-family: 'Hind';
+	font-family: 'Lato';
 	font-weight: 500;
 	padding: 75px 25px 40px;
 	.panel {
@@ -150,12 +147,6 @@ body {
 /*login and registration form*/
 .login-form
 {
-	/*background: url(transparentcover.png) no-repeat center center fixed;*/
-	background: url(cover.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 100vh;
 }
 
@@ -183,7 +174,7 @@ body {
 
 p.form-title
 {
-    font-family: 'Hind';
+    font-family: 'Lato';
     font-size: 25px;
     font-weight: 600;
     text-align: center;
@@ -360,7 +351,7 @@ form[name=form-centerrp] label {
 
 /*PROJECT SHOW*/
 .project-container {
-	font-family: 'Hind';
+	font-family: 'Lato';
 	padding-bottom: 10%;
 	.left {
 		height: 100%;
