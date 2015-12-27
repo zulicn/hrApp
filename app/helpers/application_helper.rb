@@ -37,4 +37,8 @@ module ApplicationHelper
     return 'user-not-subscribed-to-event'
   end
 
+  def pretty_date(date)
+    return nil if date.nil?
+    date.strftime("%d.%m.%Y.  %H:%M")
+  end
 end

@@ -17,11 +17,10 @@
               <tr>
                 <td><%= link_to user_event.name, event_path(user_event), title: 'Pogledaj event', rel: 'tooltip' %></td>
                 <td><%= user_event.description %></td>
-                <td><%= user_event.start_date.strftime("%d.%m.%Y.  %H:%M") %></td>
-                <td><%= user_event.end_date.strftime("%d.%m.%Y.  %H:%M") %></td>
+                <td><%= pretty_date(user_event.start_date) %></td>
+                <td><%= pretty_date(user_event.end_date) %></td>
                 <td><%= event_attendence(user_event) %></td>
                 <td><%= event_chargeable(user_event) %></td>
-
               </tr>
           <% end %>
           </tbody>

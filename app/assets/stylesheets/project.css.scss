@@ -2,6 +2,7 @@
 
 .project-active {
   background-color: $green;
+  color: #fff;
 
   a {
     color: #fff;
@@ -12,5 +13,13 @@
 }
 
 .project-archived {
-  background-color: #CDC9C9;
+  background-color: #E7E7E7;
+  color: #000;
+
+  a {
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+  }
 }

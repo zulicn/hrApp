@@ -125,7 +125,7 @@ form {
     .notification.red {
       color: red;
     }
-		height: 320px;
+		min-height: 320px;
 		background: transparent;
 		overflow: auto;
 		.panel-heading {
@@ -142,15 +142,25 @@ form {
 		}
 		.pacific-heading {
 			background-color: $pacific-blue;
+      a {
+        color: white;
+      }
 		}
 		.yellow-heading {
 			background-color: $yellow;
+      color: black;
+      a {
+        color: black;
+      }
 		}
 		.violet-heading {
 			background-color: $violet;
 		}
 		.green-heading {
 			background-color: $green;
+      a {
+        color: white;
+      }
 		}
 	}
 }
@@ -300,16 +310,10 @@ form[name=form-centerrp] label {
 	.panel-heading{
 		background-color: $red;
 	}
-	.accepted{
-		background-color: #D1E231;
-	}
 	.panel-heading.accepted {
 		line-height: 35px;
 		height: 55px;
-		background-color: $red;
-	}
-	.new{
-		background-color: #CDC9C9;
+		background-color: $green;
 	}
 
 	.search-right-menu {

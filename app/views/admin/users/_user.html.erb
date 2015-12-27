@@ -2,7 +2,11 @@
   <td><%= user.firstname %></td>
   <td><%= user.lastname %></td>
   <td><%= user.email %></td>
-  <td width="200px"><%= link_to 'Pogledaj detalje', admin_user_path(user) %></td>
+  <td width="200px">
+    <%= link_to admin_user_path(user) do %>
+      <span class="glyphicon glyphicon-list" data-toggle="tooltip" data-placement="top" title="Detalji"></span>
+    <% end %>
+  </td>
   <td class="admin-field" width="200px">
   <% if user.is_admin? %>
     Administrator

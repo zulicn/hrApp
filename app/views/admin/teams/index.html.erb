@@ -16,14 +16,19 @@
           </thead>
           <tbody>
           <% @teams.each do |team| %>
-            <tr>
+            <tr class="team-row">
               <td><%= team.name %></td>
               <td><%= team.shortcode %></td>
               <td>
-                <%= button_to 'Dodaj novi task', new_admin_team_annual_task_path(team, @team), class: 'pull-right btn btn-default', :method => :get%>
-                <%= link_to 'Promijeni', edit_admin_team_path(team) %> |
-                <%= link_to 'Izbriši', admin_team_path(team), method: :delete, data: { confirm: "Jeste li sigurni?" } %>
-                <!--TBD dodaj task-->
+                <%= link_to new_admin_team_annual_task_path(team, @team) do %>
+                  <span class="glyphicon glyphicon-pushpin" data-toggle="tooltip" data-placement="top" title="Dodaj task"></span>
+                <% end %> |
+                <%= link_to edit_admin_team_path(team) do %>
+                  <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Promijeni"></span>
+                <% end %> |
+                <%= link_to admin_team_path(team), method: :delete, data: { confirm: "Jeste li sigurni?" } do %>
+                  <span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Izbriši"></span>
+                <% end %>
               </td>
             </tr>
 
