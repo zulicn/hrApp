@@ -18,9 +18,5 @@ module Admin
       redirect_to admin_dashboard_path
     end
 
-    #def reject
-    #  Membership.create!(project_id: params[:project_id], team_id: Team.no_team.id, user_id: current_user.id)
-    #  redirect_to dashboard_path
-    #end
   end
 end
