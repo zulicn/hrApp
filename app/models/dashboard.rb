@@ -56,6 +56,19 @@ class Dashboard
         message: "Kreirana je nova radionica #{ws.name}, prijave do #{ws.deadline.strftime('%d.%m.%Y')}",
         )
     end
+
+    if @user.is_admin?
+      workshops_dl_expired = Workshop.deadline_expired
+      workshops_dl_expired.each do |ws|
+        unless ws.recorded?
+          notifications << Notification.new(
+            message: "Rok za prijave na radionicu #{ws.name} je istekao, dodajte članove",
+            link: "/admin/workshop_attendences/new?workshop_id=#{ws.id}"
+            )
+        end
+      end
+    end
+
   end
 
   def build_projects

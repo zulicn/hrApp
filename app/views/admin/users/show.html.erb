@@ -17,7 +17,7 @@
           <table class="table table-hover">
             <tr><td>Ime:</td><td><%= @user.fullname %> <% if @user.alumni? %>(Alumni)<% end %></td></tr>
             <tr><td>Email:</td><td><%= @user.email %></td></tr>
-            <tr><td>Phone:</td><td><%= @user.phone %></td></tr>
+            <tr><td>Telefon:</td><td><%= @user.phone %></td></tr>
             <tr><td>Odsjek:</td><td><%= @user.department.name %></td></tr>
             <% if @user.alumni? %>
               <tr><td>Zanimanje:</td><td><%= @user.alumni_position %></td></tr>
@@ -63,6 +63,21 @@
               <tr>
                 <td><%= t[:project] %></td>
                 <td><%= t[:teams] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Radionice koje je posjetio</div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <% @details.workshops.each do |w| %>
+              <tr>
+                <td><%= w[:workshop] %></td>
+                <td><%= w[:lc] %></td>
               </tr>
             <% end %>
           </table>

@@ -23,4 +23,17 @@ class Workshop < ActiveRecord::Base
   def self.for_apply
     where('start_date > ?', 1.month.from_now)
   end
+
+  def self.deadline_expired
+    where('start_date < ?', 1.month.from_now)
+  end
+
+  def recorded?
+    workshop_attendences.any?
+  end
+
+  def no_member?
+    workshop_attendences.where(no_member: true).any?
+  end
+
 end

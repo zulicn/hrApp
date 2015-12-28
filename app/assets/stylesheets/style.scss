@@ -126,6 +126,10 @@ form.button_to {
   }
 }
 
+.btn-no-member {
+  	color: $red;
+}
+
 .dashboard-container {
 	font-family: 'Lato';
 	font-weight: 500;
@@ -467,3 +471,4 @@ form[name=form-centerrp] label {
 .report-area {
 	height: 400px !important;
 }
+
