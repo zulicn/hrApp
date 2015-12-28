@@ -1,15 +1,17 @@
 class UserInfo
-  attr_accessor :user, :tasks, :teams_per_project
+  attr_accessor :user, :tasks, :teams_per_project, :workshops
 
   def initialize(user)
     @user = user
     @tasks = []
     @teams_per_project = []
+    @workshops = []
   end
 
   def build
     build_tasks
     build_teams
+    build_workshops
     self
   end
 
@@ -41,6 +43,15 @@ class UserInfo
       @teams_per_project << {
         project: projects[project_id],
         teams: mems.map(&:team_id).map { |team_id| teams[team_id] }.join(', ')
+      }
+    end
+  end
+
+  def build_workshops
+    @user.workshops.each do |ws|
+      @workshops << {
+        workshop: ws.name,
+        lc: ws.lc
       }
     end
   end

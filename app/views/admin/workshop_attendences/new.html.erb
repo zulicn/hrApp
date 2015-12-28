@@ -1,0 +1,42 @@
+<%= form_tag(params.merge(:controller => "workshop_attendences", :action => "create"), { class: 'col-lg-6', name: 'form-center' }) do %>
+  <div>
+    <p><%= @workshop.name %></p>
+    LC: <%= @workshop.lc %><br>
+    Vrijeme: <%= pretty_date(@workshop.start_date) %> - <%= pretty_date(@workshop.end_date) %>
+  </div>
+  <div class="form-group" id="user-list">
+    <br>
+    <p>Izaberite clanove koji će prisustvovati/su prisustvovali na ovoj radionici:</p>
+    <input type="text" id="search" class="form-control" placeholder="Unesi ime i/ili prezime clana" style="width:70%;" /><br>
+    <% User.all.each do |user| %>
+      <div class="user"><%= check_box_tag 'users[]', user.id %> <%= user.fullname %></div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Spasi', disabled: true, class: 'btn btn-success' %>
+    <%= link_to "Odustani", :back, {:class=>"btn btn-default"} %>
+    <%= link_to 'Niko ne ide na radionicu', set_no_member_admin_workshop_attendences_path(workshop_id: @workshop.id), {:class=>"btn btn-default btn-no-member", method: :post} %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("input[type='checkbox'").click(function() {
+      if($('input[name="users[]"]:checked').length > 0) {
+        $('input[type="submit"]').removeAttr('disabled')
+      } else {
+        $('input[type="submit"').attr('disabled', 'disabled');
+      }
+    });
+    $("#search").keyup(function(){
+     var val = $(this).val().toLowerCase();
+     $("#user-list > .user").hide();
+     $("#user-list > .user").each(function(){
+     var text = $(this).text().toLowerCase();
+     if(text.indexOf(val) != -1)
+       {
+       $(this).show();
+       }
+     });
+    });
+  });
+</script>

@@ -23,6 +23,10 @@ Rails.application.routes.draw do
       put :undo_attendence
     end
 
+    resources :workshop_attendences do
+      post :set_no_member, on: :collection
+    end
+
     resources :users, only: [:index, :show] do
       post :accept, on: :member
       post :promote, on: :member
