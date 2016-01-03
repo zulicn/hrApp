@@ -1,22 +1,21 @@
 module Admin
   class TasksController < AdminController
 
-    def new
-      @task = Task.new()
-      @project_team = ProjectTeam.find(params[:project_team_id])
-    end
+  def new
+    @task = Task.new()
+    @project_team = ProjectTeam.find(params[:project_team_id])
+  end
 
-    def create
-      @project_team = ProjectTeam.find(params[:project_team_id])
-      @task = Task.create(task_params.merge(:creator_id => @current_user.id, :is_active => true, :project_team_id => params[:project_team_id]))
-      admin_project_path(params[:project_id])
-      if @task.save
-        redirect_to admin_project_path(params[:project_id])
-      else
-        render 'new'
-      end
+  def create
+    @project_team = ProjectTeam.find(params[:project_team_id])
+    @task = Task.create(task_params.merge(:creator_id => @current_user.id, :is_active => true, :project_team_id => params[:project_team_id]))
+    admin_project_path(params[:project_id])
+    if @task.save
+      redirect_to admin_project_path(params[:project_id])
+    else
+      render 'new'
     end
-
+  end
 
   def edit
     @project = Project.find(params[:project_id])

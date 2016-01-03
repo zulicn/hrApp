@@ -26,12 +26,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update_attributes(user_params)
-        redirect_to dashboard_path
-      else
-        render :new
-      end
+    if @user.update_attributes(user_params)
+      redirect_to dashboard_path
+    else
+      render :new
     end
   end
 

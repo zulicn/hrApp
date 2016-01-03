@@ -9,10 +9,12 @@
 
 	<div class="col-lg-8 right">
 		<div class="row">
-			<div class="panel panel-default">
+			<div class="panel panel-default my-tasks">
 			      <div class="panel-heading pacific-heading">
 				      Moji zadaci
-				      <%= button_to 'Prijavi se na novi zadatak', project_tasks_path(@project), class: 'pull-right btn btn-success', :method => :get%>
+				      <div style="display:block; margin-top: 3px;">
+				      <%= button_to 'Prijavi se na novi zadatak', project_tasks_path(@project), class: 'pull-right btn btn-default', :method => :get%>
+				      </div>
 			      </div>
 			      
 			      <div class="panel-body">

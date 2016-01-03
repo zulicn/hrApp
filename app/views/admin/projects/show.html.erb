@@ -9,7 +9,8 @@
 
 	<div class="col-lg-8 right">
 		<div class="row">
-		    <%= button_to 'Prijavi se za zadatak!', project_tasks_path(@project), class: 'pull-right btn btn-default', :method => :get%>
+		    <%= button_to 'Prijavi se za zadatak!', project_tasks_path(@project), class: 'pull-right btn btn-default project-show-btn', :method => :get%>
+		    <br>
 			<% @project.project_teams.each do |project_team| %>
 			<div class="col-lg-6">
 			  <div class="panel panel-default">
