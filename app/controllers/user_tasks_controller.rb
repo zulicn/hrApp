@@ -18,7 +18,11 @@ class UserTasksController < ApplicationController
     @user_task.update(task_params)
     @user_task.save!
     find_task = Task.find(@user_task.task_id);
-    find_task.is_active = params[:task_id];
+    if params[:task_is_done] == "false"
+      find_task.is_active = false;
+    else 
+      find_task.is_active = true;
+    end
     find_task.material = params[:material];
     find_task.save!
     redirect_to dashboard_path

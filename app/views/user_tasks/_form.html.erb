@@ -16,7 +16,7 @@
     <%= f.label @task.material %>
   </div>
 <%end%>
-<% unless @task.report.nil?%>
+<% unless @task.report.nil? || @task.report ==''%>
   <div class="form-group">
     <p class="user-task-label">Izvještaj administratora: </p>
     <%= f.label @task.report %>
@@ -27,7 +27,7 @@
   <%= f.text_area :user_report, class: "form-control" %>
 </div>
 <div class="form-group">
-    <%= check_box_tag 'task_id', @task.id,!@task.is_active%> <%= f.label 'Završen' %>   
+    <%= check_box_tag 'task_is_done', !@task.is_active, !@task.is_active == true %> <%= f.label 'Završen' %>   
 </div>
 <div class="form-group">
   <%= f.submit 'Spasi promjene', class: 'btn btn-success' %>
