@@ -46,7 +46,10 @@ Rails.application.routes.draw do
   resources :projects
   resources :teams
   resources :events
-  resources :user_tasks, only: [:create, :destroy, :edit, :update]
+  resources :user_tasks, only: [:create, :destroy, :edit, :update,:show] do
+      resources :tasks_comments, only: [:new, :create, :edit, :update,:show]
+  end
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   resource :dashboard, only: :show
@@ -62,5 +65,6 @@ Rails.application.routes.draw do
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
+  
   root 'welcomes#show'
 end

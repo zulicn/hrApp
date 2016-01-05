@@ -203,7 +203,7 @@ form[name=form-center]{
     border: 2px solid #62B948;
     padding: 20px;
 }
-form[name=form-center].edit_project,  form[name=form-center].new_project, form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop, form[name=form-center].edit_event,  form[name=form-center].new_event{
+form[name=form-center].edit_project,  form[name=form-center].new_project, , form[name=form-center].edit_team,  form[name=form-center].new_team, form[name=form-center].edit_workshop,  form[name=form-center].new_workshop, form[name=form-center].edit_event,  form[name=form-center].new_event{
   margin-top: 5%;
 }
 
@@ -431,4 +431,37 @@ form[name=form-centerrp] label {
 
 .user-not-subscribed-to-event {
   color: #B00100;
+}
+
+.tasks-comment{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 300px;
+  background: #F7F7F7 !important;
+  border-radius: 25px;
+  border: 2px solid #62B948;
+  padding: 20px;
+  align: center;
+  min-height: 60vh;
+  width: 600px;
+  .panel-heading {
+  	text-align: center;
+  	color: #62B948 !important;
+  	background: #F7F7F7 !important;
+  }
+  .tasks-panel{
+	background: #F8FBEF;
+	border: 0.5px solid #62B948;
+}
+}
+
+
+
+.tasks-comment-label{
+	color: #62B948;
+	display: inline;
+}
+
+.tasks-comment-pp{
+	display: inline;
 }

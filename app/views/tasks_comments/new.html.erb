@@ -1,0 +1,7 @@
+
+<div class="registration-form">
+<span class="title"><span class="glyphicon glyphicon-hand-right"></span> <%= @user_task.task.id %> - Unesi komentar</span>
+        <%= form_for @tasks_comment, url: { action: "create" },html: {class: 'col-lg-6', name: 'form-centerr'} do |f| %>
+		<%= render partial: 'form', :locals => { :f => f, :submit_label => "Učlani se" } %>
+	<% end %>
+</div>

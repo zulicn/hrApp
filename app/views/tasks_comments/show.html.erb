@@ -1,0 +1,19 @@
+<div class="tasks-comment" >
+<span class="title"><span class="glyphicon glyphicon-hand-center"></span> Komentari na <%= @user_task.task.name %></span>
+      <div class="panel-body">
+          <% @tasks_comments.each do |task_comment| %>
+           	<% if task_comment.task_id == @user_task.task.id %>
+           		<div class="form-group">
+			    	<p class="tasks-comment-label">Komentar: </p> <br>
+			    	<%= task_comment.comment %> <br>
+			    	<p class="tasks-comment-label">by: <%= task_comment.user.username %> &nbsp; <%= task_comment.created_at.strftime("%d.%m.%Y.  %H:%M") %></p>
+			    	 <br><br>
+
+			  	<% end %>
+			  	</p>
+          <% end %>
+          <div class="form-group">
+		  <%= link_to 'Dodaj komentar',  new_user_task_tasks_comment_path(@user_task), class: 'btn btn-success',:method => :get %>
+		</div>
+</div>
+

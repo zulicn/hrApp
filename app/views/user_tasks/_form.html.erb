@@ -27,6 +27,10 @@
   <%= f.text_area :user_report, class: "form-control" %>
 </div>
 <div class="form-group">
+  <!--<%= link_to 'Dodaj komentar',  new_user_task_tasks_comment_path(@user_task) ,:method => :get %>-->
+  <%= link_to 'Vidi prethodne komentare',  user_task_tasks_comment_path(@user_task,TasksComment.all),:method => :get %>
+</div>
+<div class="form-group">
     <%= check_box_tag 'task_id', @task.id,!@task.is_active%> <%= f.label 'Završen' %>   
 </div>
 <div class="form-group">
