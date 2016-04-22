@@ -53,5 +53,3 @@ group :development, :test do
   gem "nokogiri", ">= 1.6.7.rc"
   gem 'tzinfo-data'
 end
-
-gem 'mandrill_mailer'

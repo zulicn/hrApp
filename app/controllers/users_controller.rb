@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = sign_up(user_params.merge(role_id: Role.member.id, is_accepted: false))
     # if user is saved by sign up method id will be populated
     if @user.id
-      #EestecMailer.new_user(@user.firstname).deliver
+      # Email should be sent
       redirect_to dashboard_path
     else
       render :new

@@ -20,7 +20,7 @@ module Admin
       if @event.save
         if params[:should_send_email] === "true"
           see_event_url = event_url(event)
-          EestecMailer.new_event(event.id, see_event_url).deliver
+          # Email should be sent
         end
         redirect_to admin_events_path
       else

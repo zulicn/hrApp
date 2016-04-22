@@ -17,7 +17,7 @@ module Admin
       @user = User.find(params[:id])
       @user.is_accepted = true
       if @user.save
-        EestecMailer.user_acceptance(@user.id).deliver
+        # Email should be sent
         respond_to do |format|
           format.html { redirect_to admin_users_path }
           format.js { }
